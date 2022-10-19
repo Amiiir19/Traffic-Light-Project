@@ -24,10 +24,19 @@ enum state{
 }state;
 
 
-void dioInit( unsigned char portNum ,unsigned char pinNum, unsigned char direction);
-void dioWrite( unsigned char portNum ,unsigned char pinNum, unsigned char value);
-void dioToggle( unsigned char portNum ,unsigned char pinNum);
-void dioRead( unsigned char portNum ,unsigned char pinNum, unsigned char *value);
+typedef enum EN_DIO_error_t
+{
+	DIO_WRONG_PIN_NUMBER,
+	DIO_WRONG_PORT_NUMBER,
+	DIO_WRONG_DIRECTION,
+	DIO_OK
+}EN_DIO_error_t ;
+
+
+EN_DIO_error_t dioInit( unsigned char portNum ,unsigned char pinNum, unsigned char direction);
+EN_DIO_error_t dioWrite( unsigned char portNum ,unsigned char pinNum, unsigned char value);
+EN_DIO_error_t dioToggle( unsigned char portNum ,unsigned char pinNum);
+EN_DIO_error_t dioRead( unsigned char portNum ,unsigned char pinNum, unsigned char *value);
 
 
 

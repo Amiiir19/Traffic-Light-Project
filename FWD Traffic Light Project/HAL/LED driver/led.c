@@ -1,9 +1,9 @@
 /*
- * led.c
- *
- * Created: 08-Oct-22 1:30:16 AM
- *  Author: Abdelrahman Mohamed Amir
- */ 
+* led.c
+*
+* Created: 08-Oct-22 1:30:16 AM
+*  Author: Abdelrahman Mohamed Amir
+*/
 #include "../../MCAL/DIO Driver/dio.h"
 #include "../../MCAL/Interrupt Driver/interrupt.h"
 #include "../../MCAL/Others/bits.h"
@@ -12,17 +12,24 @@
 #include "../../HAL/Button Driver/button.h"
 #include "../../HAL/LED driver/led.h"
 #include "led.h"
-
-void ledInit(unsigned char ledPort ,unsigned char ledPin){
-	dioInit(ledPort,ledPin,OUTPUT);
+EN_DIO_error_t errorpan;
+EN_DIO_error_t ledInit(unsigned char ledPort ,unsigned char ledPin){
+	errorpan=dioInit(ledPort,ledPin,OUTPUT);
+	return errorpan;
 }
-void ledON(unsigned char ledPort ,unsigned char ledPin){
+EN_DIO_error_t ledON(unsigned char ledPort ,unsigned char ledPin){
 	
-	dioWrite(ledPort,ledPin,HIGH);
+	errorpan=dioWrite(ledPort,ledPin,HIGH);
+	return errorpan;
+
 }
-void ledOFF(unsigned char ledPort ,unsigned char ledPin){
-	dioWrite(ledPort,ledPin,LOW);
+EN_DIO_error_t ledOFF(unsigned char ledPort ,unsigned char ledPin){
+	errorpan=dioWrite(ledPort,ledPin,LOW);
+	return errorpan;
+
 }
-void ledToggle(unsigned char ledPort ,unsigned char ledPin){
-	dioToggle(ledPort,ledPin);
+EN_DIO_error_t ledToggle(unsigned char ledPort ,unsigned char ledPin){
+	errorpan=dioToggle(ledPort,ledPin);
+	return errorpan;
 }
+

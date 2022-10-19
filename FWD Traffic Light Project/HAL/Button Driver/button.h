@@ -7,10 +7,8 @@
 
 
 #ifndef BUTTON_H_
-#define BUTTON_H_
-
-void buttonInit(unsigned char buttonPort, unsigned char buttonPin );
-void buttonRead(unsigned char buttonPort, unsigned char buttonPin , unsigned char *value);
+EN_DIO_error_t buttonInit(unsigned char buttonPort, unsigned char buttonPin );
+EN_DIO_error_t buttonRead(unsigned char buttonPort, unsigned char buttonPin , unsigned char *value);
 
 
 

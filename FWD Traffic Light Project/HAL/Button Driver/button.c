@@ -1,9 +1,9 @@
 /*
- * button.c
- *
- * Created: 08-Oct-22 1:30:37 AM
- *  Author: Abdelrahman Mohamed Amir
- */ 
+* button.c
+*
+* Created: 08-Oct-22 1:30:37 AM
+*  Author: Abdelrahman Mohamed Amir
+*/
 #include "../../MCAL/DIO Driver/dio.h"
 #include "../../MCAL/Interrupt Driver/interrupt.h"
 #include "../../MCAL/Others/bits.h"
@@ -12,10 +12,12 @@
 #include "../../HAL/Button Driver/button.h"
 #include "../../HAL/LED driver/led.h"
 #include "button.h"
-
-void buttonInit(unsigned char buttonPort, unsigned char buttonPin ){
-	dioInit(buttonPort,buttonPin,INPUT);
+EN_DIO_error_t errorbutton;
+EN_DIO_error_t buttonInit(unsigned char buttonPort, unsigned char buttonPin ){
+	errorbutton=dioInit(buttonPort,buttonPin,INPUT);
+	return errorbutton;
 }
-void buttonRead(unsigned char buttonPort, unsigned char buttonPin , unsigned char *value){
-	dioRead(buttonPort,buttonPin,value);
+EN_DIO_error_t buttonRead(unsigned char buttonPort, unsigned char buttonPin , unsigned char *value){
+	errorbutton=dioRead(buttonPort,buttonPin,value);
+	return errorbutton;
 }

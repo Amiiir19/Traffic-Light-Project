@@ -8,9 +8,13 @@
 
 #ifndef TIMERS_H_
 #define TIMERS_H_
+typedef enum timerError{
+	wrongMode,
+	timerok
+	}timerError;
 
 void timerInit(void);
-void timer0Set(int x);
-void timer1Set(int yellow);
+timerError timer0Set(int x);
+timerError timer1Set(int yellow);
 
 #endif /* TIMERS_H_ */

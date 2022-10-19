@@ -59,24 +59,27 @@ void timerStart0(unsigned int preScalar, unsigned int number_of_overflow)
 	}
 }
 
-void timerStop0(void)
+void timerStop0()
 {
 	TCCR0 = 0x00;
 }
-void timer0Set(int x){
+timerError timer0Set(int x){
 	if(x==2000){
 		timerStart0(256,77);
 	}
 	else if(x==0) {
 		timerStart0(256,15);
 	}
+	else{
+		return wrongMode;
+	}
+	return timerok;
 	timerStop0();
 }
-void timer1Set(int yellow){
+timerError timer1Set(int yellow){
 	// here i use prescalar 64 for and 256 for 5 second
 	TCCR1B = 0x00;
 	if(yellow==1){
-		
 		TCNT1H = 0xE1;
 		TCNT1L = 0x7C;
 		//make the prescalar of 64
@@ -95,9 +98,14 @@ void timer1Set(int yellow){
 		setBit(TIFR,2);
 		setBit(TCCR1B,2);
 	}
+	
+	else{
+	return wrongMode;
+	}
 	while ((readBit(TIFR,2)) == 0);
 	//setBit(TIFR,2);
 
 	// stop the timer
 	TCCR1B = 0x00;
+	return timerok;
 }

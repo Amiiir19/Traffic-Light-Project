@@ -14,7 +14,16 @@
 #include "dio.h"
 
 
-void dioInit( unsigned char portNum ,unsigned char pinNum, unsigned char direction){
+EN_DIO_error_t  dioInit( unsigned char portNum ,unsigned char pinNum, unsigned char direction){
+	
+	
+	if (pinNum>7){
+		return DIO_WRONG_PIN_NUMBER;
+	}
+	if(direction != OUTPUT || direction != INPUT){
+		return DIO_WRONG_DIRECTION;
+	}
+	
 	
 	switch(portNum){
 		case PORT_A :
@@ -57,10 +66,17 @@ void dioInit( unsigned char portNum ,unsigned char pinNum, unsigned char directi
 			clrBit(directionPortD,pinNum);
 		}
 		break;
+			default:
+			return DIO_WRONG_PORT_NUMBER;
 	}
+	return DIO_OK;
 }
 
-void dioWrite( unsigned char portNum ,unsigned char pinNum, unsigned char value){
+EN_DIO_error_t  dioWrite( unsigned char portNum ,unsigned char pinNum, unsigned char value){
+	
+	if (pinNum>7){
+		return DIO_WRONG_PIN_NUMBER;
+	}
 	
 	switch(portNum){
 		case PORT_A :
@@ -97,42 +113,64 @@ void dioWrite( unsigned char portNum ,unsigned char pinNum, unsigned char value)
 			clrBit(PORTD,pinNum);
 		}
 		break;
+			default:
+			return DIO_WRONG_PORT_NUMBER;
 	}
-	
+	return DIO_OK;
 }
 
-void dioToggle( unsigned char portNum ,unsigned char pinNum)
+EN_DIO_error_t  dioToggle( unsigned char portNum ,unsigned char pinNum)
 {
+	if (pinNum>7){
+		return DIO_WRONG_PIN_NUMBER;
+	}
 	switch(portNum){
 		case PORT_A :
 		toggleBit(PORTA,pinNum);
+		
 		break;
 		case PORT_B :
 		toggleBit(PORTB,pinNum);
+		
 		break;
 		case PORT_C :
 		toggleBit(PORTC,pinNum);
+		
 		break;
 		case PORT_D :
 		toggleBit(PORTD,pinNum);
+		
 		break;
+		default: return DIO_WRONG_PORT_NUMBER;
 	}
+	return DIO_OK;
 }
 
-void dioRead( unsigned char portNum ,unsigned char pinNum, unsigned char *value){
+EN_DIO_error_t dioRead( unsigned char portNum ,unsigned char pinNum, unsigned char *value){
+	
+	if (pinNum>7){
+		return DIO_WRONG_PIN_NUMBER;
+	}
 	
 	switch (portNum){
 		case PORT_A:
 		*value = readBit(PINA,pinNum);
+		
 		break;
 		case PORT_B:
 		*value = readBit(PINB,pinNum);
+		
 		break;
 		case PORT_C:
 		*value = readBit(PINC,pinNum);
+		
 		break;
 		case PORT_D:
 		*value = readBit(PIND,pinNum);
+		
 		break;
+		default:
+		return DIO_WRONG_PORT_NUMBER;
 	}
+	return DIO_OK;
 }

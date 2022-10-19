@@ -3,38 +3,38 @@ FWD Traffic Light Project.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000922  00000000  00000000  00000074  2**1
+  0 .text         000008de  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000000  00800060  00800060  00000996  2**0
+  1 .data         00000000  00800060  00800060  00000952  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000004  00800060  00800060  00000996  2**0
+  2 .bss          00000006  00800060  00800060  00000952  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  00000996  2**0
+  3 .comment      00000030  00000000  00000000  00000952  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000009c8  2**2
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000984  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000160  00000000  00000000  00000a04  2**0
+  5 .debug_aranges 00000170  00000000  00000000  000009c0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00001920  00000000  00000000  00000b64  2**0
+  6 .debug_info   0000199d  00000000  00000000  00000b30  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 000009f2  00000000  00000000  00002484  2**0
+  7 .debug_abbrev 00000a13  00000000  00000000  000024cd  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000cae  00000000  00000000  00002e76  2**0
+  8 .debug_line   00000d6c  00000000  00000000  00002ee0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000260  00000000  00000000  00003b24  2**2
+  9 .debug_frame  00000280  00000000  00000000  00003c4c  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    0000050f  00000000  00000000  00003d84  2**0
+ 10 .debug_str    000005e4  00000000  00000000  00003ecc  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000008a6  00000000  00000000  00004293  2**0
+ 11 .debug_loc    000009be  00000000  00000000  000044b0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000000f0  00000000  00000000  00004b39  2**0
+ 12 .debug_ranges 00000100  00000000  00000000  00004e6e  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
 
 00000000 <__vectors>:
    0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
-   4:	0c 94 d2 01 	jmp	0x3a4	; 0x3a4 <__vector_1>
+   4:	0c 94 e3 01 	jmp	0x3c6	; 0x3c6 <__vector_1>
    8:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
    c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
   10:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
@@ -73,17 +73,17 @@ Disassembly of section .text:
   68:	1d 92       	st	X+, r1
 
 0000006a <.do_clear_bss_start>:
-  6a:	a4 36       	cpi	r26, 0x64	; 100
+  6a:	a6 36       	cpi	r26, 0x66	; 102
   6c:	b2 07       	cpc	r27, r18
   6e:	e1 f7       	brne	.-8      	; 0x68 <.do_clear_bss_loop>
-  70:	0e 94 2d 02 	call	0x45a	; 0x45a <main>
-  74:	0c 94 8f 04 	jmp	0x91e	; 0x91e <_exit>
+  70:	0e 94 95 02 	call	0x52a	; 0x52a <main>
+  74:	0c 94 6d 04 	jmp	0x8da	; 0x8da <_exit>
 
 00000078 <__bad_interrupt>:
   78:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 0000007c <setupMode>:
-int trafficState = 0;
+}
 
 void setupMode(void)
 {
@@ -91,1533 +91,1724 @@ void setupMode(void)
 	ledInit(PORT_A, 0);
   7c:	60 e0       	ldi	r22, 0x00	; 0
   7e:	81 e4       	ldi	r24, 0x41	; 65
-  80:	0e 94 c3 01 	call	0x386	; 0x386 <ledInit>
+  80:	0e 94 7e 02 	call	0x4fc	; 0x4fc <ledInit>
 	ledInit(PORT_A, 1);
   84:	61 e0       	ldi	r22, 0x01	; 1
   86:	81 e4       	ldi	r24, 0x41	; 65
-  88:	0e 94 c3 01 	call	0x386	; 0x386 <ledInit>
+  88:	0e 94 7e 02 	call	0x4fc	; 0x4fc <ledInit>
 	ledInit(PORT_A, 2);
   8c:	62 e0       	ldi	r22, 0x02	; 2
   8e:	81 e4       	ldi	r24, 0x41	; 65
-  90:	0e 94 c3 01 	call	0x386	; 0x386 <ledInit>
+  90:	0e 94 7e 02 	call	0x4fc	; 0x4fc <ledInit>
 	ledInit(PORT_B, 0);
   94:	60 e0       	ldi	r22, 0x00	; 0
   96:	82 e4       	ldi	r24, 0x42	; 66
-  98:	0e 94 c3 01 	call	0x386	; 0x386 <ledInit>
+  98:	0e 94 7e 02 	call	0x4fc	; 0x4fc <ledInit>
 	ledInit(PORT_B, 1);
   9c:	61 e0       	ldi	r22, 0x01	; 1
   9e:	82 e4       	ldi	r24, 0x42	; 66
-  a0:	0e 94 c3 01 	call	0x386	; 0x386 <ledInit>
+  a0:	0e 94 7e 02 	call	0x4fc	; 0x4fc <ledInit>
 	ledInit(PORT_B, 2);
   a4:	62 e0       	ldi	r22, 0x02	; 2
   a6:	82 e4       	ldi	r24, 0x42	; 66
-  a8:	0e 94 c3 01 	call	0x386	; 0x386 <ledInit>
+  a8:	0e 94 7e 02 	call	0x4fc	; 0x4fc <ledInit>
 	buttonInit(PORT_D, 2);
   ac:	62 e0       	ldi	r22, 0x02	; 2
   ae:	84 e4       	ldi	r24, 0x44	; 68
-  b0:	0e 94 bc 01 	call	0x378	; 0x378 <buttonInit>
+  b0:	0e 94 73 02 	call	0x4e6	; 0x4e6 <buttonInit>
 	interruptInit();
-  b4:	0e 94 07 04 	call	0x80e	; 0x80e <interruptInit>
+  b4:	0e 94 e2 03 	call	0x7c4	; 0x7c4 <interruptInit>
 	timerInit();
-  b8:	0e 94 15 04 	call	0x82a	; 0x82a <timerInit>
+  b8:	0e 94 f0 03 	call	0x7e0	; 0x7e0 <timerInit>
   bc:	08 95       	ret
 
-000000be <pedPass>:
-	carPass();
-	timer0Set(2000);
-}
+000000be <APP_init>:
 
-void pedPass(){
-	ledON(PORT_A, 0);
-  be:	60 e0       	ldi	r22, 0x00	; 0
-  c0:	81 e4       	ldi	r24, 0x41	; 65
-  c2:	0e 94 c7 01 	call	0x38e	; 0x38e <ledON>
-	ledOFF(PORT_A, 1);
-  c6:	61 e0       	ldi	r22, 0x01	; 1
-  c8:	81 e4       	ldi	r24, 0x41	; 65
-  ca:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-	ledOFF(PORT_A, 2);
-  ce:	62 e0       	ldi	r22, 0x02	; 2
-  d0:	81 e4       	ldi	r24, 0x41	; 65
-  d2:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-	ledON(PORT_B, 2);
-  d6:	62 e0       	ldi	r22, 0x02	; 2
-  d8:	82 e4       	ldi	r24, 0x42	; 66
-  da:	0e 94 c7 01 	call	0x38e	; 0x38e <ledON>
-	ledOFF(PORT_B, 1);
-  de:	61 e0       	ldi	r22, 0x01	; 1
-  e0:	82 e4       	ldi	r24, 0x42	; 66
-  e2:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-	ledOFF(PORT_B, 0);
-  e6:	60 e0       	ldi	r22, 0x00	; 0
-  e8:	82 e4       	ldi	r24, 0x42	; 66
-  ea:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-	trafficState = 1;
-  ee:	81 e0       	ldi	r24, 0x01	; 1
-  f0:	90 e0       	ldi	r25, 0x00	; 0
-  f2:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <_edata+0x1>
-  f6:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <_edata>
-  fa:	08 95       	ret
 
-000000fc <carPass>:
-}
-void carPass(){
-	ledON(PORT_A, 2);
-  fc:	62 e0       	ldi	r22, 0x02	; 2
-  fe:	81 e4       	ldi	r24, 0x41	; 65
- 100:	0e 94 c7 01 	call	0x38e	; 0x38e <ledON>
-	ledOFF(PORT_A, 0);
- 104:	60 e0       	ldi	r22, 0x00	; 0
- 106:	81 e4       	ldi	r24, 0x41	; 65
- 108:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-	ledOFF(PORT_A, 1);
- 10c:	61 e0       	ldi	r22, 0x01	; 1
- 10e:	81 e4       	ldi	r24, 0x41	; 65
- 110:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-	ledON(PORT_B, 0);
- 114:	60 e0       	ldi	r22, 0x00	; 0
- 116:	82 e4       	ldi	r24, 0x42	; 66
- 118:	0e 94 c7 01 	call	0x38e	; 0x38e <ledON>
-	ledOFF(PORT_B, 1);
- 11c:	61 e0       	ldi	r22, 0x01	; 1
- 11e:	82 e4       	ldi	r24, 0x42	; 66
- 120:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-	ledOFF(PORT_B, 2);
- 124:	62 e0       	ldi	r22, 0x02	; 2
- 126:	82 e4       	ldi	r24, 0x42	; 66
- 128:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-	trafficState = 3;
- 12c:	83 e0       	ldi	r24, 0x03	; 3
- 12e:	90 e0       	ldi	r25, 0x00	; 0
- 130:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <_edata+0x1>
- 134:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <_edata>
- 138:	08 95       	ret
-
-0000013a <yellowBlink>:
-}
-void yellowBlink(int timernum , int pedorcar){
- 13a:	cf 93       	push	r28
- 13c:	df 93       	push	r29
-	// 0 means car blink
-	// 1 means ped blink
-	if (timernum==0){
- 13e:	00 97       	sbiw	r24, 0x00	; 0
- 140:	09 f0       	breq	.+2      	; 0x144 <yellowBlink+0xa>
- 142:	63 c0       	rjmp	.+198    	; 0x20a <yellowBlink+0xd0>
-		if (pedorcar==0){
- 144:	61 15       	cp	r22, r1
- 146:	71 05       	cpc	r23, r1
- 148:	71 f5       	brne	.+92     	; 0x1a6 <yellowBlink+0x6c>
-			trafficState = 2;
- 14a:	82 e0       	ldi	r24, 0x02	; 2
- 14c:	90 e0       	ldi	r25, 0x00	; 0
- 14e:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <_edata+0x1>
- 152:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <_edata>
-			ledON(PORT_B,0);
- 156:	60 e0       	ldi	r22, 0x00	; 0
- 158:	82 e4       	ldi	r24, 0x42	; 66
- 15a:	0e 94 c7 01 	call	0x38e	; 0x38e <ledON>
-			ledOFF(PORT_B,1);
- 15e:	61 e0       	ldi	r22, 0x01	; 1
- 160:	82 e4       	ldi	r24, 0x42	; 66
- 162:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-			ledOFF(PORT_B,2);
- 166:	62 e0       	ldi	r22, 0x02	; 2
- 168:	82 e4       	ldi	r24, 0x42	; 66
- 16a:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-			ledOFF(PORT_A,0);
- 16e:	60 e0       	ldi	r22, 0x00	; 0
- 170:	81 e4       	ldi	r24, 0x41	; 65
- 172:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-			ledOFF(PORT_A,2);
- 176:	62 e0       	ldi	r22, 0x02	; 2
- 178:	81 e4       	ldi	r24, 0x41	; 65
- 17a:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-			ledON(PORT_A,1);
- 17e:	61 e0       	ldi	r22, 0x01	; 1
- 180:	81 e4       	ldi	r24, 0x41	; 65
- 182:	0e 94 c7 01 	call	0x38e	; 0x38e <ledON>
-			for(int count=0 ;count<=4;count++ ){
- 186:	c0 e0       	ldi	r28, 0x00	; 0
- 188:	d0 e0       	ldi	r29, 0x00	; 0
- 18a:	09 c0       	rjmp	.+18     	; 0x19e <yellowBlink+0x64>
-				timer0Set(0);
- 18c:	80 e0       	ldi	r24, 0x00	; 0
- 18e:	90 e0       	ldi	r25, 0x00	; 0
- 190:	0e 94 56 04 	call	0x8ac	; 0x8ac <timer0Set>
-				ledToggle(PORT_A,1);
- 194:	61 e0       	ldi	r22, 0x01	; 1
- 196:	81 e4       	ldi	r24, 0x41	; 65
- 198:	0e 94 cf 01 	call	0x39e	; 0x39e <ledToggle>
-			ledOFF(PORT_B,1);
-			ledOFF(PORT_B,2);
-			ledOFF(PORT_A,0);
-			ledOFF(PORT_A,2);
-			ledON(PORT_A,1);
-			for(int count=0 ;count<=4;count++ ){
- 19c:	21 96       	adiw	r28, 0x01	; 1
- 19e:	c5 30       	cpi	r28, 0x05	; 5
- 1a0:	d1 05       	cpc	r29, r1
- 1a2:	a4 f3       	brlt	.-24     	; 0x18c <yellowBlink+0x52>
- 1a4:	d3 c0       	rjmp	.+422    	; 0x34c <yellowBlink+0x212>
-				timer0Set(0);
-				ledToggle(PORT_A,1);
-			}
-		}
-		else if(pedorcar==1)
- 1a6:	61 30       	cpi	r22, 0x01	; 1
- 1a8:	71 05       	cpc	r23, r1
- 1aa:	09 f0       	breq	.+2      	; 0x1ae <yellowBlink+0x74>
- 1ac:	cf c0       	rjmp	.+414    	; 0x34c <yellowBlink+0x212>
-		{
-			trafficState = 3;
- 1ae:	83 e0       	ldi	r24, 0x03	; 3
- 1b0:	90 e0       	ldi	r25, 0x00	; 0
- 1b2:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <_edata+0x1>
- 1b6:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <_edata>
-			ledON(PORT_A,2);
- 1ba:	62 e0       	ldi	r22, 0x02	; 2
- 1bc:	81 e4       	ldi	r24, 0x41	; 65
- 1be:	0e 94 c7 01 	call	0x38e	; 0x38e <ledON>
-			ledOFF(PORT_A,1);
- 1c2:	61 e0       	ldi	r22, 0x01	; 1
- 1c4:	81 e4       	ldi	r24, 0x41	; 65
- 1c6:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-			ledOFF(PORT_A,0);
- 1ca:	60 e0       	ldi	r22, 0x00	; 0
- 1cc:	81 e4       	ldi	r24, 0x41	; 65
- 1ce:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-			ledOFF(PORT_B,0);
- 1d2:	60 e0       	ldi	r22, 0x00	; 0
- 1d4:	82 e4       	ldi	r24, 0x42	; 66
- 1d6:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-			ledOFF(PORT_B,2);
- 1da:	62 e0       	ldi	r22, 0x02	; 2
- 1dc:	82 e4       	ldi	r24, 0x42	; 66
- 1de:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-			ledON(PORT_B,1);
- 1e2:	61 e0       	ldi	r22, 0x01	; 1
- 1e4:	82 e4       	ldi	r24, 0x42	; 66
- 1e6:	0e 94 c7 01 	call	0x38e	; 0x38e <ledON>
-			for(int count=0 ;count<=4;count++ ){
- 1ea:	c0 e0       	ldi	r28, 0x00	; 0
- 1ec:	d0 e0       	ldi	r29, 0x00	; 0
- 1ee:	09 c0       	rjmp	.+18     	; 0x202 <yellowBlink+0xc8>
-				timer0Set(0);
- 1f0:	80 e0       	ldi	r24, 0x00	; 0
- 1f2:	90 e0       	ldi	r25, 0x00	; 0
- 1f4:	0e 94 56 04 	call	0x8ac	; 0x8ac <timer0Set>
-				ledToggle(PORT_B,1);
- 1f8:	61 e0       	ldi	r22, 0x01	; 1
- 1fa:	82 e4       	ldi	r24, 0x42	; 66
- 1fc:	0e 94 cf 01 	call	0x39e	; 0x39e <ledToggle>
-			ledOFF(PORT_A,1);
-			ledOFF(PORT_A,0);
-			ledOFF(PORT_B,0);
-			ledOFF(PORT_B,2);
-			ledON(PORT_B,1);
-			for(int count=0 ;count<=4;count++ ){
- 200:	21 96       	adiw	r28, 0x01	; 1
- 202:	c5 30       	cpi	r28, 0x05	; 5
- 204:	d1 05       	cpc	r29, r1
- 206:	a4 f3       	brlt	.-24     	; 0x1f0 <yellowBlink+0xb6>
- 208:	a1 c0       	rjmp	.+322    	; 0x34c <yellowBlink+0x212>
-				timer0Set(0);
-				ledToggle(PORT_B,1);
-			}
-		}
-	}
-	else if(timernum==1){
- 20a:	01 97       	sbiw	r24, 0x01	; 1
- 20c:	09 f0       	breq	.+2      	; 0x210 <yellowBlink+0xd6>
- 20e:	9e c0       	rjmp	.+316    	; 0x34c <yellowBlink+0x212>
-		if (pedorcar==0){
- 210:	61 15       	cp	r22, r1
- 212:	71 05       	cpc	r23, r1
- 214:	71 f5       	brne	.+92     	; 0x272 <yellowBlink+0x138>
-			trafficState = 2;
- 216:	82 e0       	ldi	r24, 0x02	; 2
- 218:	90 e0       	ldi	r25, 0x00	; 0
- 21a:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <_edata+0x1>
- 21e:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <_edata>
-			ledON(PORT_B,0);
- 222:	60 e0       	ldi	r22, 0x00	; 0
- 224:	82 e4       	ldi	r24, 0x42	; 66
- 226:	0e 94 c7 01 	call	0x38e	; 0x38e <ledON>
-			ledOFF(PORT_B,1);
- 22a:	61 e0       	ldi	r22, 0x01	; 1
- 22c:	82 e4       	ldi	r24, 0x42	; 66
- 22e:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-			ledOFF(PORT_B,2);
- 232:	62 e0       	ldi	r22, 0x02	; 2
- 234:	82 e4       	ldi	r24, 0x42	; 66
- 236:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-			ledOFF(PORT_A,0);
- 23a:	60 e0       	ldi	r22, 0x00	; 0
- 23c:	81 e4       	ldi	r24, 0x41	; 65
- 23e:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-			ledOFF(PORT_A,2);
- 242:	62 e0       	ldi	r22, 0x02	; 2
- 244:	81 e4       	ldi	r24, 0x41	; 65
- 246:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-			ledON(PORT_A,1);
- 24a:	61 e0       	ldi	r22, 0x01	; 1
- 24c:	81 e4       	ldi	r24, 0x41	; 65
- 24e:	0e 94 c7 01 	call	0x38e	; 0x38e <ledON>
-			for(int count=0 ;count<=10;count++ ){
- 252:	c0 e0       	ldi	r28, 0x00	; 0
- 254:	d0 e0       	ldi	r29, 0x00	; 0
- 256:	09 c0       	rjmp	.+18     	; 0x26a <yellowBlink+0x130>
-				timer1Set(1);
- 258:	81 e0       	ldi	r24, 0x01	; 1
- 25a:	90 e0       	ldi	r25, 0x00	; 0
- 25c:	0e 94 6c 04 	call	0x8d8	; 0x8d8 <timer1Set>
-				ledToggle(PORT_A,1);
- 260:	61 e0       	ldi	r22, 0x01	; 1
- 262:	81 e4       	ldi	r24, 0x41	; 65
- 264:	0e 94 cf 01 	call	0x39e	; 0x39e <ledToggle>
-			ledOFF(PORT_B,1);
-			ledOFF(PORT_B,2);
-			ledOFF(PORT_A,0);
-			ledOFF(PORT_A,2);
-			ledON(PORT_A,1);
-			for(int count=0 ;count<=10;count++ ){
- 268:	21 96       	adiw	r28, 0x01	; 1
- 26a:	cb 30       	cpi	r28, 0x0B	; 11
- 26c:	d1 05       	cpc	r29, r1
- 26e:	a4 f3       	brlt	.-24     	; 0x258 <yellowBlink+0x11e>
- 270:	6d c0       	rjmp	.+218    	; 0x34c <yellowBlink+0x212>
-				timer1Set(1);
-				ledToggle(PORT_A,1);
-			}
-		}
-		else if(pedorcar==1)
- 272:	61 30       	cpi	r22, 0x01	; 1
- 274:	71 05       	cpc	r23, r1
- 276:	71 f5       	brne	.+92     	; 0x2d4 <yellowBlink+0x19a>
-		{
-			trafficState = 3;
- 278:	83 e0       	ldi	r24, 0x03	; 3
- 27a:	90 e0       	ldi	r25, 0x00	; 0
- 27c:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <_edata+0x1>
- 280:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <_edata>
-			ledON(PORT_A,2);
- 284:	62 e0       	ldi	r22, 0x02	; 2
- 286:	81 e4       	ldi	r24, 0x41	; 65
- 288:	0e 94 c7 01 	call	0x38e	; 0x38e <ledON>
-			ledOFF(PORT_A,1);
- 28c:	61 e0       	ldi	r22, 0x01	; 1
- 28e:	81 e4       	ldi	r24, 0x41	; 65
- 290:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-			ledOFF(PORT_A,0);
- 294:	60 e0       	ldi	r22, 0x00	; 0
- 296:	81 e4       	ldi	r24, 0x41	; 65
- 298:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-			ledOFF(PORT_B,0);
- 29c:	60 e0       	ldi	r22, 0x00	; 0
- 29e:	82 e4       	ldi	r24, 0x42	; 66
- 2a0:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-			ledOFF(PORT_B,2);
- 2a4:	62 e0       	ldi	r22, 0x02	; 2
- 2a6:	82 e4       	ldi	r24, 0x42	; 66
- 2a8:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-			ledON(PORT_B,1);
- 2ac:	61 e0       	ldi	r22, 0x01	; 1
- 2ae:	82 e4       	ldi	r24, 0x42	; 66
- 2b0:	0e 94 c7 01 	call	0x38e	; 0x38e <ledON>
-			for(int count=0 ;count<=10;count++ ){
- 2b4:	c0 e0       	ldi	r28, 0x00	; 0
- 2b6:	d0 e0       	ldi	r29, 0x00	; 0
- 2b8:	09 c0       	rjmp	.+18     	; 0x2cc <yellowBlink+0x192>
-				timer1Set(1);
- 2ba:	81 e0       	ldi	r24, 0x01	; 1
- 2bc:	90 e0       	ldi	r25, 0x00	; 0
- 2be:	0e 94 6c 04 	call	0x8d8	; 0x8d8 <timer1Set>
-				ledToggle(PORT_B,1);
- 2c2:	61 e0       	ldi	r22, 0x01	; 1
- 2c4:	82 e4       	ldi	r24, 0x42	; 66
- 2c6:	0e 94 cf 01 	call	0x39e	; 0x39e <ledToggle>
-			ledOFF(PORT_A,1);
-			ledOFF(PORT_A,0);
-			ledOFF(PORT_B,0);
-			ledOFF(PORT_B,2);
-			ledON(PORT_B,1);
-			for(int count=0 ;count<=10;count++ ){
- 2ca:	21 96       	adiw	r28, 0x01	; 1
- 2cc:	cb 30       	cpi	r28, 0x0B	; 11
- 2ce:	d1 05       	cpc	r29, r1
- 2d0:	a4 f3       	brlt	.-24     	; 0x2ba <yellowBlink+0x180>
- 2d2:	3c c0       	rjmp	.+120    	; 0x34c <yellowBlink+0x212>
-				timer1Set(1);
-				ledToggle(PORT_B,1);
-			}
-		}
-		else if(pedorcar==2)
- 2d4:	62 30       	cpi	r22, 0x02	; 2
- 2d6:	71 05       	cpc	r23, r1
- 2d8:	c9 f5       	brne	.+114    	; 0x34c <yellowBlink+0x212>
-		{
-			trafficState = 3;
- 2da:	83 e0       	ldi	r24, 0x03	; 3
- 2dc:	90 e0       	ldi	r25, 0x00	; 0
- 2de:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <_edata+0x1>
- 2e2:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <_edata>
-			ledON(PORT_A,1);
- 2e6:	61 e0       	ldi	r22, 0x01	; 1
- 2e8:	81 e4       	ldi	r24, 0x41	; 65
- 2ea:	0e 94 c7 01 	call	0x38e	; 0x38e <ledON>
-			ledOFF(PORT_A,2);
- 2ee:	62 e0       	ldi	r22, 0x02	; 2
- 2f0:	81 e4       	ldi	r24, 0x41	; 65
- 2f2:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-			ledOFF(PORT_A,0);
- 2f6:	60 e0       	ldi	r22, 0x00	; 0
- 2f8:	81 e4       	ldi	r24, 0x41	; 65
- 2fa:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-			ledOFF(PORT_B,0);
- 2fe:	60 e0       	ldi	r22, 0x00	; 0
- 300:	82 e4       	ldi	r24, 0x42	; 66
- 302:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-			ledOFF(PORT_B,2);
- 306:	62 e0       	ldi	r22, 0x02	; 2
- 308:	82 e4       	ldi	r24, 0x42	; 66
- 30a:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-			ledON(PORT_B,1);
- 30e:	61 e0       	ldi	r22, 0x01	; 1
- 310:	82 e4       	ldi	r24, 0x42	; 66
- 312:	0e 94 c7 01 	call	0x38e	; 0x38e <ledON>
-			for(int count=0 ;count<=10;count++ ){
- 316:	c0 e0       	ldi	r28, 0x00	; 0
- 318:	d0 e0       	ldi	r29, 0x00	; 0
- 31a:	0d c0       	rjmp	.+26     	; 0x336 <yellowBlink+0x1fc>
-				timer1Set(1);
- 31c:	81 e0       	ldi	r24, 0x01	; 1
- 31e:	90 e0       	ldi	r25, 0x00	; 0
- 320:	0e 94 6c 04 	call	0x8d8	; 0x8d8 <timer1Set>
-				ledToggle(PORT_B,1);
- 324:	61 e0       	ldi	r22, 0x01	; 1
- 326:	82 e4       	ldi	r24, 0x42	; 66
- 328:	0e 94 cf 01 	call	0x39e	; 0x39e <ledToggle>
-				ledToggle(PORT_A,1);
- 32c:	61 e0       	ldi	r22, 0x01	; 1
- 32e:	81 e4       	ldi	r24, 0x41	; 65
- 330:	0e 94 cf 01 	call	0x39e	; 0x39e <ledToggle>
-			ledOFF(PORT_A,2);
-			ledOFF(PORT_A,0);
-			ledOFF(PORT_B,0);
-			ledOFF(PORT_B,2);
-			ledON(PORT_B,1);
-			for(int count=0 ;count<=10;count++ ){
- 334:	21 96       	adiw	r28, 0x01	; 1
- 336:	cb 30       	cpi	r28, 0x0B	; 11
- 338:	d1 05       	cpc	r29, r1
- 33a:	84 f3       	brlt	.-32     	; 0x31c <yellowBlink+0x1e2>
-				timer1Set(1);
-				ledToggle(PORT_B,1);
-				ledToggle(PORT_A,1);
-			}
-			ledOFF(PORT_A,1);
- 33c:	61 e0       	ldi	r22, 0x01	; 1
- 33e:	81 e4       	ldi	r24, 0x41	; 65
- 340:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-			ledOFF(PORT_B,1);
- 344:	61 e0       	ldi	r22, 0x01	; 1
- 346:	82 e4       	ldi	r24, 0x42	; 66
- 348:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
-			
-		}
-	}
- 34c:	df 91       	pop	r29
- 34e:	cf 91       	pop	r28
- 350:	08 95       	ret
-
-00000352 <normalMode>:
-
-}
-
-void normalMode(void)
-{
-	pedPass();
- 352:	0e 94 5f 00 	call	0xbe	; 0xbe <pedPass>
-	timer0Set(2000);
- 356:	80 ed       	ldi	r24, 0xD0	; 208
- 358:	97 e0       	ldi	r25, 0x07	; 7
- 35a:	0e 94 56 04 	call	0x8ac	; 0x8ac <timer0Set>
-	yellowBlink(0,0); // yellowblink(used timer 0 for normal 1 for interrupt , which yellow led will blink 0 car)
- 35e:	60 e0       	ldi	r22, 0x00	; 0
- 360:	70 e0       	ldi	r23, 0x00	; 0
- 362:	80 e0       	ldi	r24, 0x00	; 0
- 364:	90 e0       	ldi	r25, 0x00	; 0
- 366:	0e 94 9d 00 	call	0x13a	; 0x13a <yellowBlink>
-	carPass();
- 36a:	0e 94 7e 00 	call	0xfc	; 0xfc <carPass>
-	timer0Set(2000);
- 36e:	80 ed       	ldi	r24, 0xD0	; 208
- 370:	97 e0       	ldi	r25, 0x07	; 7
- 372:	0e 94 56 04 	call	0x8ac	; 0x8ac <timer0Set>
- 376:	08 95       	ret
-
-00000378 <buttonInit>:
-#include "../../HAL/Button Driver/button.h"
-#include "../../HAL/LED driver/led.h"
-#include "button.h"
-
-void buttonInit(unsigned char buttonPort, unsigned char buttonPin ){
-	dioInit(buttonPort,buttonPin,INPUT);
- 378:	40 e0       	ldi	r20, 0x00	; 0
- 37a:	0e 94 7c 02 	call	0x4f8	; 0x4f8 <dioInit>
- 37e:	08 95       	ret
-
-00000380 <buttonRead>:
-}
-void buttonRead(unsigned char buttonPort, unsigned char buttonPin , unsigned char *value){
-	dioRead(buttonPort,buttonPin,value);
- 380:	0e 94 a3 03 	call	0x746	; 0x746 <dioRead>
- 384:	08 95       	ret
-
-00000386 <ledInit>:
-#include "../../HAL/Button Driver/button.h"
-#include "../../HAL/LED driver/led.h"
-#include "led.h"
-
-void ledInit(unsigned char ledPort ,unsigned char ledPin){
-	dioInit(ledPort,ledPin,OUTPUT);
- 386:	41 e0       	ldi	r20, 0x01	; 1
- 388:	0e 94 7c 02 	call	0x4f8	; 0x4f8 <dioInit>
- 38c:	08 95       	ret
-
-0000038e <ledON>:
-}
-void ledON(unsigned char ledPort ,unsigned char ledPin){
+void APP_init(){
 	
-	dioWrite(ledPort,ledPin,HIGH);
- 38e:	41 e0       	ldi	r20, 0x01	; 1
- 390:	0e 94 f4 02 	call	0x5e8	; 0x5e8 <dioWrite>
- 394:	08 95       	ret
-
-00000396 <ledOFF>:
-}
-void ledOFF(unsigned char ledPort ,unsigned char ledPin){
-	dioWrite(ledPort,ledPin,LOW);
- 396:	40 e0       	ldi	r20, 0x00	; 0
- 398:	0e 94 f4 02 	call	0x5e8	; 0x5e8 <dioWrite>
- 39c:	08 95       	ret
-
-0000039e <ledToggle>:
-}
-void ledToggle(unsigned char ledPort ,unsigned char ledPin){
-	dioToggle(ledPort,ledPin);
- 39e:	0e 94 6c 03 	call	0x6d8	; 0x6d8 <dioToggle>
- 3a2:	08 95       	ret
-
-000003a4 <__vector_1>:
-extern  int trafficState;
-
-int testMode=0;
-
-
-ISR (EXT_INT_0){
- 3a4:	1f 92       	push	r1
- 3a6:	0f 92       	push	r0
- 3a8:	0f b6       	in	r0, 0x3f	; 63
- 3aa:	0f 92       	push	r0
- 3ac:	11 24       	eor	r1, r1
- 3ae:	2f 93       	push	r18
- 3b0:	3f 93       	push	r19
- 3b2:	4f 93       	push	r20
- 3b4:	5f 93       	push	r21
- 3b6:	6f 93       	push	r22
- 3b8:	7f 93       	push	r23
- 3ba:	8f 93       	push	r24
- 3bc:	9f 93       	push	r25
- 3be:	af 93       	push	r26
- 3c0:	bf 93       	push	r27
- 3c2:	ef 93       	push	r30
- 3c4:	ff 93       	push	r31
 	
-	//disable interrupt TO AVOID LONG PRESS AND DOUBLE PRESS
-	clrBit(GICR,6);
- 3c6:	8b b7       	in	r24, 0x3b	; 59
- 3c8:	8f 7b       	andi	r24, 0xBF	; 191
- 3ca:	8b bf       	out	0x3b, r24	; 59
-	// The ISR Function
-	/* Here we check the last state of the car leds to know in which behavior will we act with the interrupt*/
-
-	switch(trafficState){
- 3cc:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <_edata>
- 3d0:	90 91 61 00 	lds	r25, 0x0061	; 0x800061 <_edata+0x1>
- 3d4:	82 30       	cpi	r24, 0x02	; 2
- 3d6:	91 05       	cpc	r25, r1
- 3d8:	19 f0       	breq	.+6      	; 0x3e0 <__vector_1+0x3c>
- 3da:	03 97       	sbiw	r24, 0x03	; 3
- 3dc:	a1 f0       	breq	.+40     	; 0x406 <__EEPROM_REGION_LENGTH__+0x6>
- 3de:	27 c0       	rjmp	.+78     	; 0x42e <__EEPROM_REGION_LENGTH__+0x2e>
-		break;
-		case 2 :
-		// Yellow Blinking both yellow leds and the timer is inside the function
-		// we pass a Variable of 1 to the function that will make the function use timer1 not 0
-		
-		yellowBlink(1,2);
- 3e0:	62 e0       	ldi	r22, 0x02	; 2
- 3e2:	70 e0       	ldi	r23, 0x00	; 0
- 3e4:	81 e0       	ldi	r24, 0x01	; 1
- 3e6:	90 e0       	ldi	r25, 0x00	; 0
- 3e8:	0e 94 9d 00 	call	0x13a	; 0x13a <yellowBlink>
-		pedPass();
- 3ec:	0e 94 5f 00 	call	0xbe	; 0xbe <pedPass>
-		timer1Set(0);
- 3f0:	80 e0       	ldi	r24, 0x00	; 0
- 3f2:	90 e0       	ldi	r25, 0x00	; 0
- 3f4:	0e 94 6c 04 	call	0x8d8	; 0x8d8 <timer1Set>
-		yellowBlink(1,0);
- 3f8:	60 e0       	ldi	r22, 0x00	; 0
- 3fa:	70 e0       	ldi	r23, 0x00	; 0
- 3fc:	81 e0       	ldi	r24, 0x01	; 1
- 3fe:	90 e0       	ldi	r25, 0x00	; 0
- 400:	0e 94 9d 00 	call	0x13a	; 0x13a <yellowBlink>
-		break;
- 404:	14 c0       	rjmp	.+40     	; 0x42e <__EEPROM_REGION_LENGTH__+0x2e>
-		case 3 :
-		yellowBlink(1,1);
- 406:	61 e0       	ldi	r22, 0x01	; 1
- 408:	70 e0       	ldi	r23, 0x00	; 0
- 40a:	81 e0       	ldi	r24, 0x01	; 1
- 40c:	90 e0       	ldi	r25, 0x00	; 0
- 40e:	0e 94 9d 00 	call	0x13a	; 0x13a <yellowBlink>
-		pedPass();
- 412:	0e 94 5f 00 	call	0xbe	; 0xbe <pedPass>
-		timer1Set(0);
- 416:	80 e0       	ldi	r24, 0x00	; 0
- 418:	90 e0       	ldi	r25, 0x00	; 0
- 41a:	0e 94 6c 04 	call	0x8d8	; 0x8d8 <timer1Set>
-		yellowBlink(1,0);
- 41e:	60 e0       	ldi	r22, 0x00	; 0
- 420:	70 e0       	ldi	r23, 0x00	; 0
- 422:	81 e0       	ldi	r24, 0x01	; 1
- 424:	90 e0       	ldi	r25, 0x00	; 0
- 426:	0e 94 9d 00 	call	0x13a	; 0x13a <yellowBlink>
-		carPass();
- 42a:	0e 94 7e 00 	call	0xfc	; 0xfc <carPass>
-		break;
-	}
-
-	//enable interrupt AGAIN
-	interruptInit();
- 42e:	0e 94 07 04 	call	0x80e	; 0x80e <interruptInit>
-	setBit(GIFR,6);
- 432:	8a b7       	in	r24, 0x3a	; 58
- 434:	80 64       	ori	r24, 0x40	; 64
- 436:	8a bf       	out	0x3a, r24	; 58
-}
- 438:	ff 91       	pop	r31
- 43a:	ef 91       	pop	r30
- 43c:	bf 91       	pop	r27
- 43e:	af 91       	pop	r26
- 440:	9f 91       	pop	r25
- 442:	8f 91       	pop	r24
- 444:	7f 91       	pop	r23
- 446:	6f 91       	pop	r22
- 448:	5f 91       	pop	r21
- 44a:	4f 91       	pop	r20
- 44c:	3f 91       	pop	r19
- 44e:	2f 91       	pop	r18
- 450:	0f 90       	pop	r0
- 452:	0f be       	out	0x3f, r0	; 63
- 454:	0f 90       	pop	r0
- 456:	1f 90       	pop	r1
- 458:	18 95       	reti
-
-0000045a <main>:
-
-
-int main(void)
-{
- 45a:	cf 93       	push	r28
- 45c:	df 93       	push	r29
- 45e:	1f 92       	push	r1
- 460:	cd b7       	in	r28, 0x3d	; 61
- 462:	de b7       	in	r29, 0x3e	; 62
 	if(testMode==1){
- 464:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <testMode>
- 468:	90 91 63 00 	lds	r25, 0x0063	; 0x800063 <testMode+0x1>
- 46c:	01 97       	sbiw	r24, 0x01	; 1
- 46e:	29 f5       	brne	.+74     	; 0x4ba <main+0x60>
+  be:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+  c2:	90 91 61 00 	lds	r25, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+  c6:	01 97       	sbiw	r24, 0x01	; 1
+  c8:	29 f5       	brne	.+74     	; 0x114 <APP_init+0x56>
 		if pressed toggle led
 		*/
 		
 		
 		//DIO Driver Function Test
 		dioInit(PORT_C,0,OUTPUT);
- 470:	41 e0       	ldi	r20, 0x01	; 1
- 472:	60 e0       	ldi	r22, 0x00	; 0
- 474:	83 e4       	ldi	r24, 0x43	; 67
- 476:	0e 94 7c 02 	call	0x4f8	; 0x4f8 <dioInit>
+  ca:	41 e0       	ldi	r20, 0x01	; 1
+  cc:	60 e0       	ldi	r22, 0x00	; 0
+  ce:	83 e4       	ldi	r24, 0x43	; 67
+  d0:	0e 94 9c 02 	call	0x538	; 0x538 <dioInit>
 		dioWrite(PORT_C,0,HIGH);
- 47a:	41 e0       	ldi	r20, 0x01	; 1
- 47c:	60 e0       	ldi	r22, 0x00	; 0
- 47e:	83 e4       	ldi	r24, 0x43	; 67
- 480:	0e 94 f4 02 	call	0x5e8	; 0x5e8 <dioWrite>
+  d4:	41 e0       	ldi	r20, 0x01	; 1
+  d6:	60 e0       	ldi	r22, 0x00	; 0
+  d8:	83 e4       	ldi	r24, 0x43	; 67
+  da:	0e 94 a2 02 	call	0x544	; 0x544 <dioWrite>
 		
 		//led Driver Function Test
 		ledInit(PORT_C,1);
- 484:	61 e0       	ldi	r22, 0x01	; 1
- 486:	83 e4       	ldi	r24, 0x43	; 67
- 488:	0e 94 c3 01 	call	0x386	; 0x386 <ledInit>
+  de:	61 e0       	ldi	r22, 0x01	; 1
+  e0:	83 e4       	ldi	r24, 0x43	; 67
+  e2:	0e 94 7e 02 	call	0x4fc	; 0x4fc <ledInit>
 		ledON(PORT_C,1);
- 48c:	61 e0       	ldi	r22, 0x01	; 1
- 48e:	83 e4       	ldi	r24, 0x43	; 67
- 490:	0e 94 c7 01 	call	0x38e	; 0x38e <ledON>
+  e6:	61 e0       	ldi	r22, 0x01	; 1
+  e8:	83 e4       	ldi	r24, 0x43	; 67
+  ea:	0e 94 84 02 	call	0x508	; 0x508 <ledON>
 
 		
 		//button Driver Function Test
 		buttonInit(PORT_C,2);
- 494:	62 e0       	ldi	r22, 0x02	; 2
- 496:	83 e4       	ldi	r24, 0x43	; 67
- 498:	0e 94 bc 01 	call	0x378	; 0x378 <buttonInit>
+  ee:	62 e0       	ldi	r22, 0x02	; 2
+  f0:	83 e4       	ldi	r24, 0x43	; 67
+  f2:	0e 94 73 02 	call	0x4e6	; 0x4e6 <buttonInit>
 		
 		// timer test
 		timerInit();
- 49c:	0e 94 15 04 	call	0x82a	; 0x82a <timerInit>
+  f6:	0e 94 f0 03 	call	0x7e0	; 0x7e0 <timerInit>
 		ledON(PORT_C,1);
- 4a0:	61 e0       	ldi	r22, 0x01	; 1
- 4a2:	83 e4       	ldi	r24, 0x43	; 67
- 4a4:	0e 94 c7 01 	call	0x38e	; 0x38e <ledON>
+  fa:	61 e0       	ldi	r22, 0x01	; 1
+  fc:	83 e4       	ldi	r24, 0x43	; 67
+  fe:	0e 94 84 02 	call	0x508	; 0x508 <ledON>
 		timer0Set(2000);
- 4a8:	80 ed       	ldi	r24, 0xD0	; 208
- 4aa:	97 e0       	ldi	r25, 0x07	; 7
- 4ac:	0e 94 56 04 	call	0x8ac	; 0x8ac <timer0Set>
+ 102:	80 ed       	ldi	r24, 0xD0	; 208
+ 104:	97 e0       	ldi	r25, 0x07	; 7
+ 106:	0e 94 2f 04 	call	0x85e	; 0x85e <timer0Set>
 		ledOFF(PORT_C,1);
- 4b0:	61 e0       	ldi	r22, 0x01	; 1
- 4b2:	83 e4       	ldi	r24, 0x43	; 67
- 4b4:	0e 94 cb 01 	call	0x396	; 0x396 <ledOFF>
- 4b8:	02 c0       	rjmp	.+4      	; 0x4be <main+0x64>
+ 10a:	61 e0       	ldi	r22, 0x01	; 1
+ 10c:	83 e4       	ldi	r24, 0x43	; 67
+ 10e:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+ 112:	08 95       	ret
 	}
 	
 	else{
 		setupMode();
- 4ba:	0e 94 3e 00 	call	0x7c	; 0x7c <setupMode>
+ 114:	0e 94 3e 00 	call	0x7c	; 0x7c <setupMode>
+ 118:	08 95       	ret
+
+0000011a <pedPass>:
+	carPass();
+	timer0Set(2000);
+}
+
+void pedPass(){
+	ledON(PORT_A, 0);
+ 11a:	60 e0       	ldi	r22, 0x00	; 0
+ 11c:	81 e4       	ldi	r24, 0x41	; 65
+ 11e:	0e 94 84 02 	call	0x508	; 0x508 <ledON>
+	ledOFF(PORT_A, 1);
+ 122:	61 e0       	ldi	r22, 0x01	; 1
+ 124:	81 e4       	ldi	r24, 0x41	; 65
+ 126:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+	ledOFF(PORT_A, 2);
+ 12a:	62 e0       	ldi	r22, 0x02	; 2
+ 12c:	81 e4       	ldi	r24, 0x41	; 65
+ 12e:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+	ledON(PORT_B, 2);
+ 132:	62 e0       	ldi	r22, 0x02	; 2
+ 134:	82 e4       	ldi	r24, 0x42	; 66
+ 136:	0e 94 84 02 	call	0x508	; 0x508 <ledON>
+	ledOFF(PORT_B, 1);
+ 13a:	61 e0       	ldi	r22, 0x01	; 1
+ 13c:	82 e4       	ldi	r24, 0x42	; 66
+ 13e:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+	ledOFF(PORT_B, 0);
+ 142:	60 e0       	ldi	r22, 0x00	; 0
+ 144:	82 e4       	ldi	r24, 0x42	; 66
+ 146:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+	trafficState = 1;
+ 14a:	81 e0       	ldi	r24, 0x01	; 1
+ 14c:	90 e0       	ldi	r25, 0x00	; 0
+ 14e:	90 93 63 00 	sts	0x0063, r25	; 0x800063 <trafficState+0x1>
+ 152:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <trafficState>
+ 156:	08 95       	ret
+
+00000158 <carPass>:
+}
+void carPass(){
+	ledON(PORT_A, 2);
+ 158:	62 e0       	ldi	r22, 0x02	; 2
+ 15a:	81 e4       	ldi	r24, 0x41	; 65
+ 15c:	0e 94 84 02 	call	0x508	; 0x508 <ledON>
+	ledOFF(PORT_A, 0);
+ 160:	60 e0       	ldi	r22, 0x00	; 0
+ 162:	81 e4       	ldi	r24, 0x41	; 65
+ 164:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+	ledOFF(PORT_A, 1);
+ 168:	61 e0       	ldi	r22, 0x01	; 1
+ 16a:	81 e4       	ldi	r24, 0x41	; 65
+ 16c:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+	ledON(PORT_B, 0);
+ 170:	60 e0       	ldi	r22, 0x00	; 0
+ 172:	82 e4       	ldi	r24, 0x42	; 66
+ 174:	0e 94 84 02 	call	0x508	; 0x508 <ledON>
+	ledOFF(PORT_B, 1);
+ 178:	61 e0       	ldi	r22, 0x01	; 1
+ 17a:	82 e4       	ldi	r24, 0x42	; 66
+ 17c:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+	ledOFF(PORT_B, 2);
+ 180:	62 e0       	ldi	r22, 0x02	; 2
+ 182:	82 e4       	ldi	r24, 0x42	; 66
+ 184:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+	trafficState = 3;
+ 188:	83 e0       	ldi	r24, 0x03	; 3
+ 18a:	90 e0       	ldi	r25, 0x00	; 0
+ 18c:	90 93 63 00 	sts	0x0063, r25	; 0x800063 <trafficState+0x1>
+ 190:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <trafficState>
+ 194:	08 95       	ret
+
+00000196 <yellowBlink>:
+}
+yellowError yellowBlink(int timernum , int pedorcar){
+ 196:	cf 93       	push	r28
+ 198:	df 93       	push	r29
+	// 0 means car blink
+	// 1 means ped blink
+	if (timernum==0){
+ 19a:	00 97       	sbiw	r24, 0x00	; 0
+ 19c:	09 f0       	breq	.+2      	; 0x1a0 <yellowBlink+0xa>
+ 19e:	65 c0       	rjmp	.+202    	; 0x26a <yellowBlink+0xd4>
+		if (pedorcar==0){
+ 1a0:	61 15       	cp	r22, r1
+ 1a2:	71 05       	cpc	r23, r1
+ 1a4:	79 f5       	brne	.+94     	; 0x204 <yellowBlink+0x6e>
+			trafficState = 2;
+ 1a6:	82 e0       	ldi	r24, 0x02	; 2
+ 1a8:	90 e0       	ldi	r25, 0x00	; 0
+ 1aa:	90 93 63 00 	sts	0x0063, r25	; 0x800063 <trafficState+0x1>
+ 1ae:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <trafficState>
+			ledON(PORT_B,0);
+ 1b2:	60 e0       	ldi	r22, 0x00	; 0
+ 1b4:	82 e4       	ldi	r24, 0x42	; 66
+ 1b6:	0e 94 84 02 	call	0x508	; 0x508 <ledON>
+			ledOFF(PORT_B,1);
+ 1ba:	61 e0       	ldi	r22, 0x01	; 1
+ 1bc:	82 e4       	ldi	r24, 0x42	; 66
+ 1be:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+			ledOFF(PORT_B,2);
+ 1c2:	62 e0       	ldi	r22, 0x02	; 2
+ 1c4:	82 e4       	ldi	r24, 0x42	; 66
+ 1c6:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+			ledOFF(PORT_A,0);
+ 1ca:	60 e0       	ldi	r22, 0x00	; 0
+ 1cc:	81 e4       	ldi	r24, 0x41	; 65
+ 1ce:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+			ledOFF(PORT_A,2);
+ 1d2:	62 e0       	ldi	r22, 0x02	; 2
+ 1d4:	81 e4       	ldi	r24, 0x41	; 65
+ 1d6:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+			ledON(PORT_A,1);
+ 1da:	61 e0       	ldi	r22, 0x01	; 1
+ 1dc:	81 e4       	ldi	r24, 0x41	; 65
+ 1de:	0e 94 84 02 	call	0x508	; 0x508 <ledON>
+			for(int count=0 ;count<=4;count++ ){
+ 1e2:	c0 e0       	ldi	r28, 0x00	; 0
+ 1e4:	d0 e0       	ldi	r29, 0x00	; 0
+ 1e6:	09 c0       	rjmp	.+18     	; 0x1fa <yellowBlink+0x64>
+				timer0Set(0);
+ 1e8:	80 e0       	ldi	r24, 0x00	; 0
+ 1ea:	90 e0       	ldi	r25, 0x00	; 0
+ 1ec:	0e 94 2f 04 	call	0x85e	; 0x85e <timer0Set>
+				ledToggle(PORT_A,1);
+ 1f0:	61 e0       	ldi	r22, 0x01	; 1
+ 1f2:	81 e4       	ldi	r24, 0x41	; 65
+ 1f4:	0e 94 90 02 	call	0x520	; 0x520 <ledToggle>
+			ledOFF(PORT_B,1);
+			ledOFF(PORT_B,2);
+			ledOFF(PORT_A,0);
+			ledOFF(PORT_A,2);
+			ledON(PORT_A,1);
+			for(int count=0 ;count<=4;count++ ){
+ 1f8:	21 96       	adiw	r28, 0x01	; 1
+ 1fa:	c5 30       	cpi	r28, 0x05	; 5
+ 1fc:	d1 05       	cpc	r29, r1
+ 1fe:	a4 f3       	brlt	.-24     	; 0x1e8 <yellowBlink+0x52>
+		}
 	}
+	else{
+		return wrong_timern_number;
+	}
+	return yellowok;
+ 200:	82 e0       	ldi	r24, 0x02	; 2
+ 202:	de c0       	rjmp	.+444    	; 0x3c0 <yellowBlink+0x22a>
+			for(int count=0 ;count<=4;count++ ){
+				timer0Set(0);
+				ledToggle(PORT_A,1);
+			}
+		}
+		else if(pedorcar==1)
+ 204:	61 30       	cpi	r22, 0x01	; 1
+ 206:	71 05       	cpc	r23, r1
+ 208:	09 f0       	breq	.+2      	; 0x20c <yellowBlink+0x76>
+ 20a:	d5 c0       	rjmp	.+426    	; 0x3b6 <yellowBlink+0x220>
+		{
+			trafficState = 3;
+ 20c:	83 e0       	ldi	r24, 0x03	; 3
+ 20e:	90 e0       	ldi	r25, 0x00	; 0
+ 210:	90 93 63 00 	sts	0x0063, r25	; 0x800063 <trafficState+0x1>
+ 214:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <trafficState>
+			ledON(PORT_A,2);
+ 218:	62 e0       	ldi	r22, 0x02	; 2
+ 21a:	81 e4       	ldi	r24, 0x41	; 65
+ 21c:	0e 94 84 02 	call	0x508	; 0x508 <ledON>
+			ledOFF(PORT_A,1);
+ 220:	61 e0       	ldi	r22, 0x01	; 1
+ 222:	81 e4       	ldi	r24, 0x41	; 65
+ 224:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+			ledOFF(PORT_A,0);
+ 228:	60 e0       	ldi	r22, 0x00	; 0
+ 22a:	81 e4       	ldi	r24, 0x41	; 65
+ 22c:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+			ledOFF(PORT_B,0);
+ 230:	60 e0       	ldi	r22, 0x00	; 0
+ 232:	82 e4       	ldi	r24, 0x42	; 66
+ 234:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+			ledOFF(PORT_B,2);
+ 238:	62 e0       	ldi	r22, 0x02	; 2
+ 23a:	82 e4       	ldi	r24, 0x42	; 66
+ 23c:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+			ledON(PORT_B,1);
+ 240:	61 e0       	ldi	r22, 0x01	; 1
+ 242:	82 e4       	ldi	r24, 0x42	; 66
+ 244:	0e 94 84 02 	call	0x508	; 0x508 <ledON>
+			for(int count=0 ;count<=4;count++ ){
+ 248:	c0 e0       	ldi	r28, 0x00	; 0
+ 24a:	d0 e0       	ldi	r29, 0x00	; 0
+ 24c:	09 c0       	rjmp	.+18     	; 0x260 <yellowBlink+0xca>
+				timer0Set(0);
+ 24e:	80 e0       	ldi	r24, 0x00	; 0
+ 250:	90 e0       	ldi	r25, 0x00	; 0
+ 252:	0e 94 2f 04 	call	0x85e	; 0x85e <timer0Set>
+				ledToggle(PORT_B,1);
+ 256:	61 e0       	ldi	r22, 0x01	; 1
+ 258:	82 e4       	ldi	r24, 0x42	; 66
+ 25a:	0e 94 90 02 	call	0x520	; 0x520 <ledToggle>
+			ledOFF(PORT_A,1);
+			ledOFF(PORT_A,0);
+			ledOFF(PORT_B,0);
+			ledOFF(PORT_B,2);
+			ledON(PORT_B,1);
+			for(int count=0 ;count<=4;count++ ){
+ 25e:	21 96       	adiw	r28, 0x01	; 1
+ 260:	c5 30       	cpi	r28, 0x05	; 5
+ 262:	d1 05       	cpc	r29, r1
+ 264:	a4 f3       	brlt	.-24     	; 0x24e <yellowBlink+0xb8>
+		}
+	}
+	else{
+		return wrong_timern_number;
+	}
+	return yellowok;
+ 266:	82 e0       	ldi	r24, 0x02	; 2
+ 268:	ab c0       	rjmp	.+342    	; 0x3c0 <yellowBlink+0x22a>
+		}
+		else{
+			return wrong_mode_choice;
+		}
+	}
+	else if(timernum==1){
+ 26a:	01 97       	sbiw	r24, 0x01	; 1
+ 26c:	09 f0       	breq	.+2      	; 0x270 <yellowBlink+0xda>
+ 26e:	a5 c0       	rjmp	.+330    	; 0x3ba <yellowBlink+0x224>
+		if (pedorcar==0){
+ 270:	61 15       	cp	r22, r1
+ 272:	71 05       	cpc	r23, r1
+ 274:	79 f5       	brne	.+94     	; 0x2d4 <yellowBlink+0x13e>
+			trafficState = 2;
+ 276:	82 e0       	ldi	r24, 0x02	; 2
+ 278:	90 e0       	ldi	r25, 0x00	; 0
+ 27a:	90 93 63 00 	sts	0x0063, r25	; 0x800063 <trafficState+0x1>
+ 27e:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <trafficState>
+			ledON(PORT_B,0);
+ 282:	60 e0       	ldi	r22, 0x00	; 0
+ 284:	82 e4       	ldi	r24, 0x42	; 66
+ 286:	0e 94 84 02 	call	0x508	; 0x508 <ledON>
+			ledOFF(PORT_B,1);
+ 28a:	61 e0       	ldi	r22, 0x01	; 1
+ 28c:	82 e4       	ldi	r24, 0x42	; 66
+ 28e:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+			ledOFF(PORT_B,2);
+ 292:	62 e0       	ldi	r22, 0x02	; 2
+ 294:	82 e4       	ldi	r24, 0x42	; 66
+ 296:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+			ledOFF(PORT_A,0);
+ 29a:	60 e0       	ldi	r22, 0x00	; 0
+ 29c:	81 e4       	ldi	r24, 0x41	; 65
+ 29e:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+			ledOFF(PORT_A,2);
+ 2a2:	62 e0       	ldi	r22, 0x02	; 2
+ 2a4:	81 e4       	ldi	r24, 0x41	; 65
+ 2a6:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+			ledON(PORT_A,1);
+ 2aa:	61 e0       	ldi	r22, 0x01	; 1
+ 2ac:	81 e4       	ldi	r24, 0x41	; 65
+ 2ae:	0e 94 84 02 	call	0x508	; 0x508 <ledON>
+			for(int count=0 ;count<=10;count++ ){
+ 2b2:	c0 e0       	ldi	r28, 0x00	; 0
+ 2b4:	d0 e0       	ldi	r29, 0x00	; 0
+ 2b6:	09 c0       	rjmp	.+18     	; 0x2ca <yellowBlink+0x134>
+				timer1Set(1);
+ 2b8:	81 e0       	ldi	r24, 0x01	; 1
+ 2ba:	90 e0       	ldi	r25, 0x00	; 0
+ 2bc:	0e 94 47 04 	call	0x88e	; 0x88e <timer1Set>
+				ledToggle(PORT_A,1);
+ 2c0:	61 e0       	ldi	r22, 0x01	; 1
+ 2c2:	81 e4       	ldi	r24, 0x41	; 65
+ 2c4:	0e 94 90 02 	call	0x520	; 0x520 <ledToggle>
+			ledOFF(PORT_B,1);
+			ledOFF(PORT_B,2);
+			ledOFF(PORT_A,0);
+			ledOFF(PORT_A,2);
+			ledON(PORT_A,1);
+			for(int count=0 ;count<=10;count++ ){
+ 2c8:	21 96       	adiw	r28, 0x01	; 1
+ 2ca:	cb 30       	cpi	r28, 0x0B	; 11
+ 2cc:	d1 05       	cpc	r29, r1
+ 2ce:	a4 f3       	brlt	.-24     	; 0x2b8 <yellowBlink+0x122>
+		}
+	}
+	else{
+		return wrong_timern_number;
+	}
+	return yellowok;
+ 2d0:	82 e0       	ldi	r24, 0x02	; 2
+ 2d2:	76 c0       	rjmp	.+236    	; 0x3c0 <yellowBlink+0x22a>
+			for(int count=0 ;count<=10;count++ ){
+				timer1Set(1);
+				ledToggle(PORT_A,1);
+			}
+		}
+		else if(pedorcar==1)
+ 2d4:	61 30       	cpi	r22, 0x01	; 1
+ 2d6:	71 05       	cpc	r23, r1
+ 2d8:	79 f5       	brne	.+94     	; 0x338 <yellowBlink+0x1a2>
+		{
+			trafficState = 3;
+ 2da:	83 e0       	ldi	r24, 0x03	; 3
+ 2dc:	90 e0       	ldi	r25, 0x00	; 0
+ 2de:	90 93 63 00 	sts	0x0063, r25	; 0x800063 <trafficState+0x1>
+ 2e2:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <trafficState>
+			ledON(PORT_A,2);
+ 2e6:	62 e0       	ldi	r22, 0x02	; 2
+ 2e8:	81 e4       	ldi	r24, 0x41	; 65
+ 2ea:	0e 94 84 02 	call	0x508	; 0x508 <ledON>
+			ledOFF(PORT_A,1);
+ 2ee:	61 e0       	ldi	r22, 0x01	; 1
+ 2f0:	81 e4       	ldi	r24, 0x41	; 65
+ 2f2:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+			ledOFF(PORT_A,0);
+ 2f6:	60 e0       	ldi	r22, 0x00	; 0
+ 2f8:	81 e4       	ldi	r24, 0x41	; 65
+ 2fa:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+			ledOFF(PORT_B,0);
+ 2fe:	60 e0       	ldi	r22, 0x00	; 0
+ 300:	82 e4       	ldi	r24, 0x42	; 66
+ 302:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+			ledOFF(PORT_B,2);
+ 306:	62 e0       	ldi	r22, 0x02	; 2
+ 308:	82 e4       	ldi	r24, 0x42	; 66
+ 30a:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+			ledON(PORT_B,1);
+ 30e:	61 e0       	ldi	r22, 0x01	; 1
+ 310:	82 e4       	ldi	r24, 0x42	; 66
+ 312:	0e 94 84 02 	call	0x508	; 0x508 <ledON>
+			for(int count=0 ;count<=10;count++ ){
+ 316:	c0 e0       	ldi	r28, 0x00	; 0
+ 318:	d0 e0       	ldi	r29, 0x00	; 0
+ 31a:	09 c0       	rjmp	.+18     	; 0x32e <yellowBlink+0x198>
+				timer1Set(1);
+ 31c:	81 e0       	ldi	r24, 0x01	; 1
+ 31e:	90 e0       	ldi	r25, 0x00	; 0
+ 320:	0e 94 47 04 	call	0x88e	; 0x88e <timer1Set>
+				ledToggle(PORT_B,1);
+ 324:	61 e0       	ldi	r22, 0x01	; 1
+ 326:	82 e4       	ldi	r24, 0x42	; 66
+ 328:	0e 94 90 02 	call	0x520	; 0x520 <ledToggle>
+			ledOFF(PORT_A,1);
+			ledOFF(PORT_A,0);
+			ledOFF(PORT_B,0);
+			ledOFF(PORT_B,2);
+			ledON(PORT_B,1);
+			for(int count=0 ;count<=10;count++ ){
+ 32c:	21 96       	adiw	r28, 0x01	; 1
+ 32e:	cb 30       	cpi	r28, 0x0B	; 11
+ 330:	d1 05       	cpc	r29, r1
+ 332:	a4 f3       	brlt	.-24     	; 0x31c <yellowBlink+0x186>
+		}
+	}
+	else{
+		return wrong_timern_number;
+	}
+	return yellowok;
+ 334:	82 e0       	ldi	r24, 0x02	; 2
+ 336:	44 c0       	rjmp	.+136    	; 0x3c0 <yellowBlink+0x22a>
+			for(int count=0 ;count<=10;count++ ){
+				timer1Set(1);
+				ledToggle(PORT_B,1);
+			}
+		}
+		else if(pedorcar==2)
+ 338:	62 30       	cpi	r22, 0x02	; 2
+ 33a:	71 05       	cpc	r23, r1
+ 33c:	09 f0       	breq	.+2      	; 0x340 <yellowBlink+0x1aa>
+ 33e:	3f c0       	rjmp	.+126    	; 0x3be <yellowBlink+0x228>
+		{
+			trafficState = 3;
+ 340:	83 e0       	ldi	r24, 0x03	; 3
+ 342:	90 e0       	ldi	r25, 0x00	; 0
+ 344:	90 93 63 00 	sts	0x0063, r25	; 0x800063 <trafficState+0x1>
+ 348:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <trafficState>
+			ledON(PORT_A,1);
+ 34c:	61 e0       	ldi	r22, 0x01	; 1
+ 34e:	81 e4       	ldi	r24, 0x41	; 65
+ 350:	0e 94 84 02 	call	0x508	; 0x508 <ledON>
+			ledOFF(PORT_A,2);
+ 354:	62 e0       	ldi	r22, 0x02	; 2
+ 356:	81 e4       	ldi	r24, 0x41	; 65
+ 358:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+			ledOFF(PORT_A,0);
+ 35c:	60 e0       	ldi	r22, 0x00	; 0
+ 35e:	81 e4       	ldi	r24, 0x41	; 65
+ 360:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+			ledOFF(PORT_B,0);
+ 364:	60 e0       	ldi	r22, 0x00	; 0
+ 366:	82 e4       	ldi	r24, 0x42	; 66
+ 368:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+			ledOFF(PORT_B,2);
+ 36c:	62 e0       	ldi	r22, 0x02	; 2
+ 36e:	82 e4       	ldi	r24, 0x42	; 66
+ 370:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+			ledON(PORT_B,1);
+ 374:	61 e0       	ldi	r22, 0x01	; 1
+ 376:	82 e4       	ldi	r24, 0x42	; 66
+ 378:	0e 94 84 02 	call	0x508	; 0x508 <ledON>
+			for(int count=0 ;count<=10;count++ ){
+ 37c:	c0 e0       	ldi	r28, 0x00	; 0
+ 37e:	d0 e0       	ldi	r29, 0x00	; 0
+ 380:	0d c0       	rjmp	.+26     	; 0x39c <yellowBlink+0x206>
+				timer1Set(1);
+ 382:	81 e0       	ldi	r24, 0x01	; 1
+ 384:	90 e0       	ldi	r25, 0x00	; 0
+ 386:	0e 94 47 04 	call	0x88e	; 0x88e <timer1Set>
+				ledToggle(PORT_B,1);
+ 38a:	61 e0       	ldi	r22, 0x01	; 1
+ 38c:	82 e4       	ldi	r24, 0x42	; 66
+ 38e:	0e 94 90 02 	call	0x520	; 0x520 <ledToggle>
+				ledToggle(PORT_A,1);
+ 392:	61 e0       	ldi	r22, 0x01	; 1
+ 394:	81 e4       	ldi	r24, 0x41	; 65
+ 396:	0e 94 90 02 	call	0x520	; 0x520 <ledToggle>
+			ledOFF(PORT_A,2);
+			ledOFF(PORT_A,0);
+			ledOFF(PORT_B,0);
+			ledOFF(PORT_B,2);
+			ledON(PORT_B,1);
+			for(int count=0 ;count<=10;count++ ){
+ 39a:	21 96       	adiw	r28, 0x01	; 1
+ 39c:	cb 30       	cpi	r28, 0x0B	; 11
+ 39e:	d1 05       	cpc	r29, r1
+ 3a0:	84 f3       	brlt	.-32     	; 0x382 <yellowBlink+0x1ec>
+				timer1Set(1);
+				ledToggle(PORT_B,1);
+				ledToggle(PORT_A,1);
+			}
+			ledOFF(PORT_A,1);
+ 3a2:	61 e0       	ldi	r22, 0x01	; 1
+ 3a4:	81 e4       	ldi	r24, 0x41	; 65
+ 3a6:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+			ledOFF(PORT_B,1);
+ 3aa:	61 e0       	ldi	r22, 0x01	; 1
+ 3ac:	82 e4       	ldi	r24, 0x42	; 66
+ 3ae:	0e 94 8a 02 	call	0x514	; 0x514 <ledOFF>
+		}
+	}
+	else{
+		return wrong_timern_number;
+	}
+	return yellowok;
+ 3b2:	82 e0       	ldi	r24, 0x02	; 2
+ 3b4:	05 c0       	rjmp	.+10     	; 0x3c0 <yellowBlink+0x22a>
+				timer0Set(0);
+				ledToggle(PORT_B,1);
+			}
+		}
+		else{
+			return wrong_mode_choice;
+ 3b6:	81 e0       	ldi	r24, 0x01	; 1
+ 3b8:	03 c0       	rjmp	.+6      	; 0x3c0 <yellowBlink+0x22a>
+		else{
+			return wrong_mode_choice;
+		}
+	}
+	else{
+		return wrong_timern_number;
+ 3ba:	80 e0       	ldi	r24, 0x00	; 0
+ 3bc:	01 c0       	rjmp	.+2      	; 0x3c0 <yellowBlink+0x22a>
+			ledOFF(PORT_A,1);
+			ledOFF(PORT_B,1);
+			
+		}
+		else{
+			return wrong_mode_choice;
+ 3be:	81 e0       	ldi	r24, 0x01	; 1
+	}
+	else{
+		return wrong_timern_number;
+	}
+	return yellowok;
+ 3c0:	df 91       	pop	r29
+ 3c2:	cf 91       	pop	r28
+ 3c4:	08 95       	ret
+
+000003c6 <__vector_1>:
+
+unsigned char buttonState = 0;
+int trafficState = 0;
+int testMode=0;
+
+ISR (EXT_INT_0){
+ 3c6:	1f 92       	push	r1
+ 3c8:	0f 92       	push	r0
+ 3ca:	0f b6       	in	r0, 0x3f	; 63
+ 3cc:	0f 92       	push	r0
+ 3ce:	11 24       	eor	r1, r1
+ 3d0:	2f 93       	push	r18
+ 3d2:	3f 93       	push	r19
+ 3d4:	4f 93       	push	r20
+ 3d6:	5f 93       	push	r21
+ 3d8:	6f 93       	push	r22
+ 3da:	7f 93       	push	r23
+ 3dc:	8f 93       	push	r24
+ 3de:	9f 93       	push	r25
+ 3e0:	af 93       	push	r26
+ 3e2:	bf 93       	push	r27
+ 3e4:	ef 93       	push	r30
+ 3e6:	ff 93       	push	r31
+	
+	//disable interrupt TO AVOID LONG PRESS AND DOUBLE PRESS
+	clrBit(GICR,6);
+ 3e8:	8b b7       	in	r24, 0x3b	; 59
+ 3ea:	8f 7b       	andi	r24, 0xBF	; 191
+ 3ec:	8b bf       	out	0x3b, r24	; 59
+	// The ISR Function
+	/* Here we check the last state of the car leds to know in which behavior will we act with the interrupt*/
+
+	switch(trafficState){
+ 3ee:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <trafficState>
+ 3f2:	90 91 63 00 	lds	r25, 0x0063	; 0x800063 <trafficState+0x1>
+ 3f6:	82 30       	cpi	r24, 0x02	; 2
+ 3f8:	91 05       	cpc	r25, r1
+ 3fa:	19 f0       	breq	.+6      	; 0x402 <__EEPROM_REGION_LENGTH__+0x2>
+ 3fc:	03 97       	sbiw	r24, 0x03	; 3
+ 3fe:	a1 f0       	breq	.+40     	; 0x428 <__EEPROM_REGION_LENGTH__+0x28>
+ 400:	27 c0       	rjmp	.+78     	; 0x450 <__EEPROM_REGION_LENGTH__+0x50>
+		break;
+		case 2 :
+		// Yellow Blinking both yellow leds and the timer is inside the function
+		// we pass a Variable of 1 to the function that will make the function use timer1 not 0
+		
+		yellowBlink(1,2);
+ 402:	62 e0       	ldi	r22, 0x02	; 2
+ 404:	70 e0       	ldi	r23, 0x00	; 0
+ 406:	81 e0       	ldi	r24, 0x01	; 1
+ 408:	90 e0       	ldi	r25, 0x00	; 0
+ 40a:	0e 94 cb 00 	call	0x196	; 0x196 <yellowBlink>
+		pedPass();
+ 40e:	0e 94 8d 00 	call	0x11a	; 0x11a <pedPass>
+		timer1Set(0);
+ 412:	80 e0       	ldi	r24, 0x00	; 0
+ 414:	90 e0       	ldi	r25, 0x00	; 0
+ 416:	0e 94 47 04 	call	0x88e	; 0x88e <timer1Set>
+		yellowBlink(1,0);
+ 41a:	60 e0       	ldi	r22, 0x00	; 0
+ 41c:	70 e0       	ldi	r23, 0x00	; 0
+ 41e:	81 e0       	ldi	r24, 0x01	; 1
+ 420:	90 e0       	ldi	r25, 0x00	; 0
+ 422:	0e 94 cb 00 	call	0x196	; 0x196 <yellowBlink>
+		break;
+ 426:	14 c0       	rjmp	.+40     	; 0x450 <__EEPROM_REGION_LENGTH__+0x50>
+		case 3 :
+		yellowBlink(1,1);
+ 428:	61 e0       	ldi	r22, 0x01	; 1
+ 42a:	70 e0       	ldi	r23, 0x00	; 0
+ 42c:	81 e0       	ldi	r24, 0x01	; 1
+ 42e:	90 e0       	ldi	r25, 0x00	; 0
+ 430:	0e 94 cb 00 	call	0x196	; 0x196 <yellowBlink>
+		pedPass();
+ 434:	0e 94 8d 00 	call	0x11a	; 0x11a <pedPass>
+		timer1Set(0);
+ 438:	80 e0       	ldi	r24, 0x00	; 0
+ 43a:	90 e0       	ldi	r25, 0x00	; 0
+ 43c:	0e 94 47 04 	call	0x88e	; 0x88e <timer1Set>
+		yellowBlink(1,0);
+ 440:	60 e0       	ldi	r22, 0x00	; 0
+ 442:	70 e0       	ldi	r23, 0x00	; 0
+ 444:	81 e0       	ldi	r24, 0x01	; 1
+ 446:	90 e0       	ldi	r25, 0x00	; 0
+ 448:	0e 94 cb 00 	call	0x196	; 0x196 <yellowBlink>
+		carPass();
+ 44c:	0e 94 ac 00 	call	0x158	; 0x158 <carPass>
+		break;
+	}
+
+	//enable interrupt AGAIN
+	interruptInit();
+ 450:	0e 94 e2 03 	call	0x7c4	; 0x7c4 <interruptInit>
+	setBit(GIFR,6);
+ 454:	8a b7       	in	r24, 0x3a	; 58
+ 456:	80 64       	ori	r24, 0x40	; 64
+ 458:	8a bf       	out	0x3a, r24	; 58
+}
+ 45a:	ff 91       	pop	r31
+ 45c:	ef 91       	pop	r30
+ 45e:	bf 91       	pop	r27
+ 460:	af 91       	pop	r26
+ 462:	9f 91       	pop	r25
+ 464:	8f 91       	pop	r24
+ 466:	7f 91       	pop	r23
+ 468:	6f 91       	pop	r22
+ 46a:	5f 91       	pop	r21
+ 46c:	4f 91       	pop	r20
+ 46e:	3f 91       	pop	r19
+ 470:	2f 91       	pop	r18
+ 472:	0f 90       	pop	r0
+ 474:	0f be       	out	0x3f, r0	; 63
+ 476:	0f 90       	pop	r0
+ 478:	1f 90       	pop	r1
+ 47a:	18 95       	reti
+
+0000047c <normalMode>:
+
+}
+
+void normalMode(void)
+{
+	pedPass();
+ 47c:	0e 94 8d 00 	call	0x11a	; 0x11a <pedPass>
+	timer0Set(2000);
+ 480:	80 ed       	ldi	r24, 0xD0	; 208
+ 482:	97 e0       	ldi	r25, 0x07	; 7
+ 484:	0e 94 2f 04 	call	0x85e	; 0x85e <timer0Set>
+	yellowBlink(0,0); // yellowblink(used timer 0 for normal 1 for interrupt , which yellow led will blink 0 car)
+ 488:	60 e0       	ldi	r22, 0x00	; 0
+ 48a:	70 e0       	ldi	r23, 0x00	; 0
+ 48c:	80 e0       	ldi	r24, 0x00	; 0
+ 48e:	90 e0       	ldi	r25, 0x00	; 0
+ 490:	0e 94 cb 00 	call	0x196	; 0x196 <yellowBlink>
+	carPass();
+ 494:	0e 94 ac 00 	call	0x158	; 0x158 <carPass>
+	timer0Set(2000);
+ 498:	80 ed       	ldi	r24, 0xD0	; 208
+ 49a:	97 e0       	ldi	r25, 0x07	; 7
+ 49c:	0e 94 2f 04 	call	0x85e	; 0x85e <timer0Set>
+ 4a0:	08 95       	ret
+
+000004a2 <APP_start>:
+	setBit(GIFR,6);
+}
+
+
+
+void APP_start (){
+ 4a2:	cf 93       	push	r28
+ 4a4:	df 93       	push	r29
+ 4a6:	1f 92       	push	r1
+ 4a8:	cd b7       	in	r28, 0x3d	; 61
+ 4aa:	de b7       	in	r29, 0x3e	; 62
 	while (1)
 	{
-		
 		if (testMode==1){
- 4be:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <testMode>
- 4c2:	90 91 63 00 	lds	r25, 0x0063	; 0x800063 <testMode+0x1>
- 4c6:	01 97       	sbiw	r24, 0x01	; 1
- 4c8:	a1 f4       	brne	.+40     	; 0x4f2 <main+0x98>
+ 4ac:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 4b0:	90 91 61 00 	lds	r25, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ 4b4:	01 97       	sbiw	r24, 0x01	; 1
+ 4b6:	a1 f4       	brne	.+40     	; 0x4e0 <APP_start+0x3e>
 			timer1Set(1);
- 4ca:	81 e0       	ldi	r24, 0x01	; 1
- 4cc:	90 e0       	ldi	r25, 0x00	; 0
- 4ce:	0e 94 6c 04 	call	0x8d8	; 0x8d8 <timer1Set>
+ 4b8:	81 e0       	ldi	r24, 0x01	; 1
+ 4ba:	90 e0       	ldi	r25, 0x00	; 0
+ 4bc:	0e 94 47 04 	call	0x88e	; 0x88e <timer1Set>
 			// Button Driver Function Test
 			unsigned char x=0;
- 4d2:	19 82       	std	Y+1, r1	; 0x01
+ 4c0:	19 82       	std	Y+1, r1	; 0x01
 			buttonRead(PORT_C,2,&x);
- 4d4:	ae 01       	movw	r20, r28
- 4d6:	4f 5f       	subi	r20, 0xFF	; 255
- 4d8:	5f 4f       	sbci	r21, 0xFF	; 255
- 4da:	62 e0       	ldi	r22, 0x02	; 2
- 4dc:	83 e4       	ldi	r24, 0x43	; 67
- 4de:	0e 94 c0 01 	call	0x380	; 0x380 <buttonRead>
+ 4c2:	ae 01       	movw	r20, r28
+ 4c4:	4f 5f       	subi	r20, 0xFF	; 255
+ 4c6:	5f 4f       	sbci	r21, 0xFF	; 255
+ 4c8:	62 e0       	ldi	r22, 0x02	; 2
+ 4ca:	83 e4       	ldi	r24, 0x43	; 67
+ 4cc:	0e 94 79 02 	call	0x4f2	; 0x4f2 <buttonRead>
 			if(	x==1){
- 4e2:	89 81       	ldd	r24, Y+1	; 0x01
- 4e4:	81 30       	cpi	r24, 0x01	; 1
- 4e6:	59 f7       	brne	.-42     	; 0x4be <main+0x64>
+ 4d0:	89 81       	ldd	r24, Y+1	; 0x01
+ 4d2:	81 30       	cpi	r24, 0x01	; 1
+ 4d4:	59 f7       	brne	.-42     	; 0x4ac <APP_start+0xa>
 
-				//led toggle function test
+					//led toggle function test
 				ledToggle(PORT_C,1);
- 4e8:	61 e0       	ldi	r22, 0x01	; 1
- 4ea:	83 e4       	ldi	r24, 0x43	; 67
- 4ec:	0e 94 cf 01 	call	0x39e	; 0x39e <ledToggle>
- 4f0:	e6 cf       	rjmp	.-52     	; 0x4be <main+0x64>
+ 4d6:	61 e0       	ldi	r22, 0x01	; 1
+ 4d8:	83 e4       	ldi	r24, 0x43	; 67
+ 4da:	0e 94 90 02 	call	0x520	; 0x520 <ledToggle>
+ 4de:	e6 cf       	rjmp	.-52     	; 0x4ac <APP_start+0xa>
 			}
 		}
 		else{
 			normalMode();
- 4f2:	0e 94 a9 01 	call	0x352	; 0x352 <normalMode>
- 4f6:	e3 cf       	rjmp	.-58     	; 0x4be <main+0x64>
+ 4e0:	0e 94 3e 02 	call	0x47c	; 0x47c <normalMode>
+ 4e4:	e3 cf       	rjmp	.-58     	; 0x4ac <APP_start+0xa>
 
-000004f8 <dioInit>:
-#include "dio.h"
+000004e6 <buttonInit>:
+#include "../../HAL/Button Driver/button.h"
+#include "../../HAL/LED driver/led.h"
+#include "button.h"
+EN_DIO_error_t errorbutton;
+EN_DIO_error_t buttonInit(unsigned char buttonPort, unsigned char buttonPin ){
+	errorbutton=dioInit(buttonPort,buttonPin,INPUT);
+ 4e6:	40 e0       	ldi	r20, 0x00	; 0
+ 4e8:	0e 94 9c 02 	call	0x538	; 0x538 <dioInit>
+ 4ec:	80 93 64 00 	sts	0x0064, r24	; 0x800064 <errorbutton>
+	return errorbutton;
+}
+ 4f0:	08 95       	ret
 
+000004f2 <buttonRead>:
+EN_DIO_error_t buttonRead(unsigned char buttonPort, unsigned char buttonPin , unsigned char *value){
+	errorbutton=dioRead(buttonPort,buttonPin,value);
+ 4f2:	0e 94 73 03 	call	0x6e6	; 0x6e6 <dioRead>
+ 4f6:	80 93 64 00 	sts	0x0064, r24	; 0x800064 <errorbutton>
+	return errorbutton;
+ 4fa:	08 95       	ret
 
-void dioInit( unsigned char portNum ,unsigned char pinNum, unsigned char direction){
+000004fc <ledInit>:
+#include "../../HAL/Button Driver/button.h"
+#include "../../HAL/LED driver/led.h"
+#include "led.h"
+EN_DIO_error_t errorpan;
+EN_DIO_error_t ledInit(unsigned char ledPort ,unsigned char ledPin){
+	errorpan=dioInit(ledPort,ledPin,OUTPUT);
+ 4fc:	41 e0       	ldi	r20, 0x01	; 1
+ 4fe:	0e 94 9c 02 	call	0x538	; 0x538 <dioInit>
+ 502:	80 93 65 00 	sts	0x0065, r24	; 0x800065 <errorpan>
+	return errorpan;
+}
+ 506:	08 95       	ret
+
+00000508 <ledON>:
+EN_DIO_error_t ledON(unsigned char ledPort ,unsigned char ledPin){
 	
-	switch(portNum){
- 4f8:	82 34       	cpi	r24, 0x42	; 66
- 4fa:	29 f1       	breq	.+74     	; 0x546 <dioInit+0x4e>
- 4fc:	18 f4       	brcc	.+6      	; 0x504 <dioInit+0xc>
- 4fe:	81 34       	cpi	r24, 0x41	; 65
- 500:	39 f0       	breq	.+14     	; 0x510 <dioInit+0x18>
- 502:	08 95       	ret
- 504:	83 34       	cpi	r24, 0x43	; 67
- 506:	d1 f1       	breq	.+116    	; 0x57c <dioInit+0x84>
- 508:	84 34       	cpi	r24, 0x44	; 68
- 50a:	09 f4       	brne	.+2      	; 0x50e <dioInit+0x16>
- 50c:	52 c0       	rjmp	.+164    	; 0x5b2 <dioInit+0xba>
- 50e:	08 95       	ret
-		case PORT_A :
-		if(direction == OUTPUT){
- 510:	41 30       	cpi	r20, 0x01	; 1
- 512:	59 f4       	brne	.+22     	; 0x52a <dioInit+0x32>
-			setBit(directionPortA,pinNum);
- 514:	2a b3       	in	r18, 0x1a	; 26
- 516:	81 e0       	ldi	r24, 0x01	; 1
- 518:	90 e0       	ldi	r25, 0x00	; 0
- 51a:	02 c0       	rjmp	.+4      	; 0x520 <dioInit+0x28>
- 51c:	88 0f       	add	r24, r24
- 51e:	99 1f       	adc	r25, r25
- 520:	6a 95       	dec	r22
- 522:	e2 f7       	brpl	.-8      	; 0x51c <dioInit+0x24>
- 524:	82 2b       	or	r24, r18
- 526:	8a bb       	out	0x1a, r24	; 26
+	errorpan=dioWrite(ledPort,ledPin,HIGH);
+ 508:	41 e0       	ldi	r20, 0x01	; 1
+ 50a:	0e 94 a2 02 	call	0x544	; 0x544 <dioWrite>
+ 50e:	80 93 65 00 	sts	0x0065, r24	; 0x800065 <errorpan>
+	return errorpan;
+
+}
+ 512:	08 95       	ret
+
+00000514 <ledOFF>:
+EN_DIO_error_t ledOFF(unsigned char ledPort ,unsigned char ledPin){
+	errorpan=dioWrite(ledPort,ledPin,LOW);
+ 514:	40 e0       	ldi	r20, 0x00	; 0
+ 516:	0e 94 a2 02 	call	0x544	; 0x544 <dioWrite>
+ 51a:	80 93 65 00 	sts	0x0065, r24	; 0x800065 <errorpan>
+	return errorpan;
+
+}
+ 51e:	08 95       	ret
+
+00000520 <ledToggle>:
+EN_DIO_error_t ledToggle(unsigned char ledPort ,unsigned char ledPin){
+	errorpan=dioToggle(ledPort,ledPin);
+ 520:	0e 94 32 03 	call	0x664	; 0x664 <dioToggle>
+ 524:	80 93 65 00 	sts	0x0065, r24	; 0x800065 <errorpan>
+	return errorpan;
+}
  528:	08 95       	ret
-		}
-		else if (direction == INPUT){
- 52a:	41 11       	cpse	r20, r1
- 52c:	5c c0       	rjmp	.+184    	; 0x5e6 <dioInit+0xee>
-			//INPUT
-			clrBit(directionPortA,pinNum);
- 52e:	2a b3       	in	r18, 0x1a	; 26
- 530:	81 e0       	ldi	r24, 0x01	; 1
- 532:	90 e0       	ldi	r25, 0x00	; 0
- 534:	02 c0       	rjmp	.+4      	; 0x53a <dioInit+0x42>
- 536:	88 0f       	add	r24, r24
- 538:	99 1f       	adc	r25, r25
- 53a:	6a 95       	dec	r22
- 53c:	e2 f7       	brpl	.-8      	; 0x536 <dioInit+0x3e>
- 53e:	80 95       	com	r24
- 540:	82 23       	and	r24, r18
- 542:	8a bb       	out	0x1a, r24	; 26
- 544:	08 95       	ret
-		}
-		break;
-		
-		case PORT_B :
-		if(direction == OUTPUT){
- 546:	41 30       	cpi	r20, 0x01	; 1
- 548:	59 f4       	brne	.+22     	; 0x560 <dioInit+0x68>
-			//OUTPUT
-			setBit(directionPortB,pinNum);
- 54a:	27 b3       	in	r18, 0x17	; 23
- 54c:	81 e0       	ldi	r24, 0x01	; 1
- 54e:	90 e0       	ldi	r25, 0x00	; 0
- 550:	02 c0       	rjmp	.+4      	; 0x556 <dioInit+0x5e>
- 552:	88 0f       	add	r24, r24
- 554:	99 1f       	adc	r25, r25
- 556:	6a 95       	dec	r22
- 558:	e2 f7       	brpl	.-8      	; 0x552 <dioInit+0x5a>
- 55a:	82 2b       	or	r24, r18
- 55c:	87 bb       	out	0x17, r24	; 23
- 55e:	08 95       	ret
 
-		}
-		else if (direction == INPUT){
- 560:	41 11       	cpse	r20, r1
- 562:	41 c0       	rjmp	.+130    	; 0x5e6 <dioInit+0xee>
-			//INPUT
-			clrBit(directionPortB,pinNum);
- 564:	27 b3       	in	r18, 0x17	; 23
- 566:	81 e0       	ldi	r24, 0x01	; 1
- 568:	90 e0       	ldi	r25, 0x00	; 0
- 56a:	02 c0       	rjmp	.+4      	; 0x570 <dioInit+0x78>
- 56c:	88 0f       	add	r24, r24
- 56e:	99 1f       	adc	r25, r25
- 570:	6a 95       	dec	r22
- 572:	e2 f7       	brpl	.-8      	; 0x56c <dioInit+0x74>
- 574:	80 95       	com	r24
- 576:	82 23       	and	r24, r18
- 578:	87 bb       	out	0x17, r24	; 23
- 57a:	08 95       	ret
-		}
-		break;
-		case PORT_C :
-		if(direction == OUTPUT){
- 57c:	41 30       	cpi	r20, 0x01	; 1
- 57e:	59 f4       	brne	.+22     	; 0x596 <dioInit+0x9e>
-			//OUTPUT
-			setBit(directionPortC,pinNum);
- 580:	24 b3       	in	r18, 0x14	; 20
- 582:	81 e0       	ldi	r24, 0x01	; 1
- 584:	90 e0       	ldi	r25, 0x00	; 0
- 586:	02 c0       	rjmp	.+4      	; 0x58c <dioInit+0x94>
- 588:	88 0f       	add	r24, r24
- 58a:	99 1f       	adc	r25, r25
- 58c:	6a 95       	dec	r22
- 58e:	e2 f7       	brpl	.-8      	; 0x588 <dioInit+0x90>
- 590:	82 2b       	or	r24, r18
- 592:	84 bb       	out	0x14, r24	; 20
- 594:	08 95       	ret
-		}
-		else if (direction == INPUT){
- 596:	41 11       	cpse	r20, r1
- 598:	26 c0       	rjmp	.+76     	; 0x5e6 <dioInit+0xee>
-			//INPUT
-			clrBit(directionPortC,pinNum);
- 59a:	24 b3       	in	r18, 0x14	; 20
- 59c:	81 e0       	ldi	r24, 0x01	; 1
- 59e:	90 e0       	ldi	r25, 0x00	; 0
- 5a0:	02 c0       	rjmp	.+4      	; 0x5a6 <dioInit+0xae>
- 5a2:	88 0f       	add	r24, r24
- 5a4:	99 1f       	adc	r25, r25
- 5a6:	6a 95       	dec	r22
- 5a8:	e2 f7       	brpl	.-8      	; 0x5a2 <dioInit+0xaa>
- 5aa:	80 95       	com	r24
- 5ac:	82 23       	and	r24, r18
- 5ae:	84 bb       	out	0x14, r24	; 20
- 5b0:	08 95       	ret
-		}
-		break;
-		case PORT_D :
-		if(direction == OUTPUT){
- 5b2:	41 30       	cpi	r20, 0x01	; 1
- 5b4:	59 f4       	brne	.+22     	; 0x5cc <dioInit+0xd4>
-			setBit(directionPortD,pinNum);
- 5b6:	21 b3       	in	r18, 0x11	; 17
- 5b8:	81 e0       	ldi	r24, 0x01	; 1
- 5ba:	90 e0       	ldi	r25, 0x00	; 0
- 5bc:	02 c0       	rjmp	.+4      	; 0x5c2 <dioInit+0xca>
- 5be:	88 0f       	add	r24, r24
- 5c0:	99 1f       	adc	r25, r25
- 5c2:	6a 95       	dec	r22
- 5c4:	e2 f7       	brpl	.-8      	; 0x5be <dioInit+0xc6>
- 5c6:	82 2b       	or	r24, r18
- 5c8:	81 bb       	out	0x11, r24	; 17
- 5ca:	08 95       	ret
-		}
-		else if (direction == INPUT){
- 5cc:	41 11       	cpse	r20, r1
- 5ce:	0b c0       	rjmp	.+22     	; 0x5e6 <dioInit+0xee>
-			//INPUT
-			clrBit(directionPortD,pinNum);
- 5d0:	21 b3       	in	r18, 0x11	; 17
- 5d2:	81 e0       	ldi	r24, 0x01	; 1
- 5d4:	90 e0       	ldi	r25, 0x00	; 0
- 5d6:	02 c0       	rjmp	.+4      	; 0x5dc <dioInit+0xe4>
- 5d8:	88 0f       	add	r24, r24
- 5da:	99 1f       	adc	r25, r25
- 5dc:	6a 95       	dec	r22
- 5de:	e2 f7       	brpl	.-8      	; 0x5d8 <dioInit+0xe0>
- 5e0:	80 95       	com	r24
- 5e2:	82 23       	and	r24, r18
- 5e4:	81 bb       	out	0x11, r24	; 17
- 5e6:	08 95       	ret
+0000052a <main>:
 
-000005e8 <dioWrite>:
-	}
+#include "APPLICATION/application.h"
+
+int main(void)
+{
+	APP_init();
+ 52a:	0e 94 5f 00 	call	0xbe	; 0xbe <APP_init>
+	APP_start();
+ 52e:	0e 94 51 02 	call	0x4a2	; 0x4a2 <APP_start>
 }
+ 532:	80 e0       	ldi	r24, 0x00	; 0
+ 534:	90 e0       	ldi	r25, 0x00	; 0
+ 536:	08 95       	ret
 
-void dioWrite( unsigned char portNum ,unsigned char pinNum, unsigned char value){
+00000538 <dioInit>:
+
+
+EN_DIO_error_t  dioInit( unsigned char portNum ,unsigned char pinNum, unsigned char direction){
+	
+	
+	if (pinNum>7){
+ 538:	68 30       	cpi	r22, 0x08	; 8
+ 53a:	10 f0       	brcs	.+4      	; 0x540 <dioInit+0x8>
+		return DIO_WRONG_PIN_NUMBER;
+ 53c:	80 e0       	ldi	r24, 0x00	; 0
+ 53e:	08 95       	ret
+	}
+	if(direction != OUTPUT || direction != INPUT){
+		return DIO_WRONG_DIRECTION;
+ 540:	82 e0       	ldi	r24, 0x02	; 2
+		break;
+			default:
+			return DIO_WRONG_PORT_NUMBER;
+	}
+	return DIO_OK;
+}
+ 542:	08 95       	ret
+
+00000544 <dioWrite>:
+
+EN_DIO_error_t  dioWrite( unsigned char portNum ,unsigned char pinNum, unsigned char value){
+	
+	if (pinNum>7){
+ 544:	68 30       	cpi	r22, 0x08	; 8
+ 546:	08 f0       	brcs	.+2      	; 0x54a <dioWrite+0x6>
+ 548:	81 c0       	rjmp	.+258    	; 0x64c <dioWrite+0x108>
+		return DIO_WRONG_PIN_NUMBER;
+	}
 	
 	switch(portNum){
- 5e8:	82 34       	cpi	r24, 0x42	; 66
- 5ea:	29 f1       	breq	.+74     	; 0x636 <dioWrite+0x4e>
- 5ec:	18 f4       	brcc	.+6      	; 0x5f4 <dioWrite+0xc>
- 5ee:	81 34       	cpi	r24, 0x41	; 65
- 5f0:	39 f0       	breq	.+14     	; 0x600 <dioWrite+0x18>
- 5f2:	08 95       	ret
- 5f4:	83 34       	cpi	r24, 0x43	; 67
- 5f6:	d1 f1       	breq	.+116    	; 0x66c <dioWrite+0x84>
- 5f8:	84 34       	cpi	r24, 0x44	; 68
- 5fa:	09 f4       	brne	.+2      	; 0x5fe <dioWrite+0x16>
- 5fc:	52 c0       	rjmp	.+164    	; 0x6a2 <dioWrite+0xba>
- 5fe:	08 95       	ret
+ 54a:	82 34       	cpi	r24, 0x42	; 66
+ 54c:	41 f1       	breq	.+80     	; 0x59e <dioWrite+0x5a>
+ 54e:	18 f4       	brcc	.+6      	; 0x556 <dioWrite+0x12>
+ 550:	81 34       	cpi	r24, 0x41	; 65
+ 552:	41 f0       	breq	.+16     	; 0x564 <dioWrite+0x20>
+ 554:	7d c0       	rjmp	.+250    	; 0x650 <dioWrite+0x10c>
+ 556:	83 34       	cpi	r24, 0x43	; 67
+ 558:	09 f4       	brne	.+2      	; 0x55c <dioWrite+0x18>
+ 55a:	3e c0       	rjmp	.+124    	; 0x5d8 <dioWrite+0x94>
+ 55c:	84 34       	cpi	r24, 0x44	; 68
+ 55e:	09 f4       	brne	.+2      	; 0x562 <dioWrite+0x1e>
+ 560:	58 c0       	rjmp	.+176    	; 0x612 <dioWrite+0xce>
+ 562:	76 c0       	rjmp	.+236    	; 0x650 <dioWrite+0x10c>
 		case PORT_A :
 		if(value==HIGH){
- 600:	41 30       	cpi	r20, 0x01	; 1
- 602:	59 f4       	brne	.+22     	; 0x61a <dioWrite+0x32>
+ 564:	41 30       	cpi	r20, 0x01	; 1
+ 566:	61 f4       	brne	.+24     	; 0x580 <dioWrite+0x3c>
 			setBit(PORTA,pinNum);
- 604:	2b b3       	in	r18, 0x1b	; 27
- 606:	81 e0       	ldi	r24, 0x01	; 1
- 608:	90 e0       	ldi	r25, 0x00	; 0
- 60a:	02 c0       	rjmp	.+4      	; 0x610 <dioWrite+0x28>
- 60c:	88 0f       	add	r24, r24
- 60e:	99 1f       	adc	r25, r25
- 610:	6a 95       	dec	r22
- 612:	e2 f7       	brpl	.-8      	; 0x60c <dioWrite+0x24>
- 614:	82 2b       	or	r24, r18
- 616:	8b bb       	out	0x1b, r24	; 27
- 618:	08 95       	ret
+ 568:	2b b3       	in	r18, 0x1b	; 27
+ 56a:	81 e0       	ldi	r24, 0x01	; 1
+ 56c:	90 e0       	ldi	r25, 0x00	; 0
+ 56e:	02 c0       	rjmp	.+4      	; 0x574 <dioWrite+0x30>
+ 570:	88 0f       	add	r24, r24
+ 572:	99 1f       	adc	r25, r25
+ 574:	6a 95       	dec	r22
+ 576:	e2 f7       	brpl	.-8      	; 0x570 <dioWrite+0x2c>
+ 578:	82 2b       	or	r24, r18
+ 57a:	8b bb       	out	0x1b, r24	; 27
+		}
+		break;
+			default:
+			return DIO_WRONG_PORT_NUMBER;
+	}
+	return DIO_OK;
+ 57c:	83 e0       	ldi	r24, 0x03	; 3
+ 57e:	08 95       	ret
+		case PORT_A :
+		if(value==HIGH){
+			setBit(PORTA,pinNum);
 
 		}
 		else if(value ==LOW){
- 61a:	41 11       	cpse	r20, r1
- 61c:	5c c0       	rjmp	.+184    	; 0x6d6 <dioWrite+0xee>
+ 580:	41 11       	cpse	r20, r1
+ 582:	68 c0       	rjmp	.+208    	; 0x654 <dioWrite+0x110>
 			clrBit(PORTA,pinNum);
- 61e:	2b b3       	in	r18, 0x1b	; 27
- 620:	81 e0       	ldi	r24, 0x01	; 1
- 622:	90 e0       	ldi	r25, 0x00	; 0
- 624:	02 c0       	rjmp	.+4      	; 0x62a <dioWrite+0x42>
- 626:	88 0f       	add	r24, r24
- 628:	99 1f       	adc	r25, r25
- 62a:	6a 95       	dec	r22
- 62c:	e2 f7       	brpl	.-8      	; 0x626 <dioWrite+0x3e>
- 62e:	80 95       	com	r24
- 630:	82 23       	and	r24, r18
- 632:	8b bb       	out	0x1b, r24	; 27
- 634:	08 95       	ret
+ 584:	2b b3       	in	r18, 0x1b	; 27
+ 586:	81 e0       	ldi	r24, 0x01	; 1
+ 588:	90 e0       	ldi	r25, 0x00	; 0
+ 58a:	02 c0       	rjmp	.+4      	; 0x590 <dioWrite+0x4c>
+ 58c:	88 0f       	add	r24, r24
+ 58e:	99 1f       	adc	r25, r25
+ 590:	6a 95       	dec	r22
+ 592:	e2 f7       	brpl	.-8      	; 0x58c <dioWrite+0x48>
+ 594:	80 95       	com	r24
+ 596:	82 23       	and	r24, r18
+ 598:	8b bb       	out	0x1b, r24	; 27
+		}
+		break;
+			default:
+			return DIO_WRONG_PORT_NUMBER;
+	}
+	return DIO_OK;
+ 59a:	83 e0       	ldi	r24, 0x03	; 3
+ 59c:	08 95       	ret
+			clrBit(PORTA,pinNum);
 
 		}
 		break;
 		case PORT_B :
 		if(value==HIGH){
- 636:	41 30       	cpi	r20, 0x01	; 1
- 638:	59 f4       	brne	.+22     	; 0x650 <dioWrite+0x68>
+ 59e:	41 30       	cpi	r20, 0x01	; 1
+ 5a0:	61 f4       	brne	.+24     	; 0x5ba <dioWrite+0x76>
 			setBit(PORTB,pinNum);
- 63a:	28 b3       	in	r18, 0x18	; 24
- 63c:	81 e0       	ldi	r24, 0x01	; 1
- 63e:	90 e0       	ldi	r25, 0x00	; 0
- 640:	02 c0       	rjmp	.+4      	; 0x646 <dioWrite+0x5e>
- 642:	88 0f       	add	r24, r24
- 644:	99 1f       	adc	r25, r25
- 646:	6a 95       	dec	r22
- 648:	e2 f7       	brpl	.-8      	; 0x642 <dioWrite+0x5a>
- 64a:	82 2b       	or	r24, r18
- 64c:	88 bb       	out	0x18, r24	; 24
- 64e:	08 95       	ret
+ 5a2:	28 b3       	in	r18, 0x18	; 24
+ 5a4:	81 e0       	ldi	r24, 0x01	; 1
+ 5a6:	90 e0       	ldi	r25, 0x00	; 0
+ 5a8:	02 c0       	rjmp	.+4      	; 0x5ae <dioWrite+0x6a>
+ 5aa:	88 0f       	add	r24, r24
+ 5ac:	99 1f       	adc	r25, r25
+ 5ae:	6a 95       	dec	r22
+ 5b0:	e2 f7       	brpl	.-8      	; 0x5aa <dioWrite+0x66>
+ 5b2:	82 2b       	or	r24, r18
+ 5b4:	88 bb       	out	0x18, r24	; 24
+		}
+		break;
+			default:
+			return DIO_WRONG_PORT_NUMBER;
+	}
+	return DIO_OK;
+ 5b6:	83 e0       	ldi	r24, 0x03	; 3
+ 5b8:	08 95       	ret
+		break;
+		case PORT_B :
+		if(value==HIGH){
+			setBit(PORTB,pinNum);
 		}
 		else if(value ==LOW){
- 650:	41 11       	cpse	r20, r1
- 652:	41 c0       	rjmp	.+130    	; 0x6d6 <dioWrite+0xee>
+ 5ba:	41 11       	cpse	r20, r1
+ 5bc:	4d c0       	rjmp	.+154    	; 0x658 <dioWrite+0x114>
 			clrBit(PORTB,pinNum);
- 654:	28 b3       	in	r18, 0x18	; 24
- 656:	81 e0       	ldi	r24, 0x01	; 1
- 658:	90 e0       	ldi	r25, 0x00	; 0
- 65a:	02 c0       	rjmp	.+4      	; 0x660 <dioWrite+0x78>
- 65c:	88 0f       	add	r24, r24
- 65e:	99 1f       	adc	r25, r25
- 660:	6a 95       	dec	r22
- 662:	e2 f7       	brpl	.-8      	; 0x65c <dioWrite+0x74>
- 664:	80 95       	com	r24
- 666:	82 23       	and	r24, r18
- 668:	88 bb       	out	0x18, r24	; 24
- 66a:	08 95       	ret
+ 5be:	28 b3       	in	r18, 0x18	; 24
+ 5c0:	81 e0       	ldi	r24, 0x01	; 1
+ 5c2:	90 e0       	ldi	r25, 0x00	; 0
+ 5c4:	02 c0       	rjmp	.+4      	; 0x5ca <dioWrite+0x86>
+ 5c6:	88 0f       	add	r24, r24
+ 5c8:	99 1f       	adc	r25, r25
+ 5ca:	6a 95       	dec	r22
+ 5cc:	e2 f7       	brpl	.-8      	; 0x5c6 <dioWrite+0x82>
+ 5ce:	80 95       	com	r24
+ 5d0:	82 23       	and	r24, r18
+ 5d2:	88 bb       	out	0x18, r24	; 24
+		}
+		break;
+			default:
+			return DIO_WRONG_PORT_NUMBER;
+	}
+	return DIO_OK;
+ 5d4:	83 e0       	ldi	r24, 0x03	; 3
+ 5d6:	08 95       	ret
+		else if(value ==LOW){
+			clrBit(PORTB,pinNum);
 		}
 		break;
 		case PORT_C :
 		if(value==HIGH){
- 66c:	41 30       	cpi	r20, 0x01	; 1
- 66e:	59 f4       	brne	.+22     	; 0x686 <dioWrite+0x9e>
+ 5d8:	41 30       	cpi	r20, 0x01	; 1
+ 5da:	61 f4       	brne	.+24     	; 0x5f4 <dioWrite+0xb0>
 			setBit(PORTC,pinNum);
- 670:	25 b3       	in	r18, 0x15	; 21
- 672:	81 e0       	ldi	r24, 0x01	; 1
- 674:	90 e0       	ldi	r25, 0x00	; 0
- 676:	02 c0       	rjmp	.+4      	; 0x67c <dioWrite+0x94>
- 678:	88 0f       	add	r24, r24
- 67a:	99 1f       	adc	r25, r25
- 67c:	6a 95       	dec	r22
- 67e:	e2 f7       	brpl	.-8      	; 0x678 <dioWrite+0x90>
- 680:	82 2b       	or	r24, r18
- 682:	85 bb       	out	0x15, r24	; 21
- 684:	08 95       	ret
+ 5dc:	25 b3       	in	r18, 0x15	; 21
+ 5de:	81 e0       	ldi	r24, 0x01	; 1
+ 5e0:	90 e0       	ldi	r25, 0x00	; 0
+ 5e2:	02 c0       	rjmp	.+4      	; 0x5e8 <dioWrite+0xa4>
+ 5e4:	88 0f       	add	r24, r24
+ 5e6:	99 1f       	adc	r25, r25
+ 5e8:	6a 95       	dec	r22
+ 5ea:	e2 f7       	brpl	.-8      	; 0x5e4 <dioWrite+0xa0>
+ 5ec:	82 2b       	or	r24, r18
+ 5ee:	85 bb       	out	0x15, r24	; 21
+		}
+		break;
+			default:
+			return DIO_WRONG_PORT_NUMBER;
+	}
+	return DIO_OK;
+ 5f0:	83 e0       	ldi	r24, 0x03	; 3
+ 5f2:	08 95       	ret
+		break;
+		case PORT_C :
+		if(value==HIGH){
+			setBit(PORTC,pinNum);
 		}
 		else if(value ==LOW){
- 686:	41 11       	cpse	r20, r1
- 688:	26 c0       	rjmp	.+76     	; 0x6d6 <dioWrite+0xee>
+ 5f4:	41 11       	cpse	r20, r1
+ 5f6:	32 c0       	rjmp	.+100    	; 0x65c <dioWrite+0x118>
 			clrBit(PORTC,pinNum);
- 68a:	25 b3       	in	r18, 0x15	; 21
- 68c:	81 e0       	ldi	r24, 0x01	; 1
- 68e:	90 e0       	ldi	r25, 0x00	; 0
- 690:	02 c0       	rjmp	.+4      	; 0x696 <dioWrite+0xae>
- 692:	88 0f       	add	r24, r24
- 694:	99 1f       	adc	r25, r25
- 696:	6a 95       	dec	r22
- 698:	e2 f7       	brpl	.-8      	; 0x692 <dioWrite+0xaa>
- 69a:	80 95       	com	r24
- 69c:	82 23       	and	r24, r18
- 69e:	85 bb       	out	0x15, r24	; 21
- 6a0:	08 95       	ret
+ 5f8:	25 b3       	in	r18, 0x15	; 21
+ 5fa:	81 e0       	ldi	r24, 0x01	; 1
+ 5fc:	90 e0       	ldi	r25, 0x00	; 0
+ 5fe:	02 c0       	rjmp	.+4      	; 0x604 <dioWrite+0xc0>
+ 600:	88 0f       	add	r24, r24
+ 602:	99 1f       	adc	r25, r25
+ 604:	6a 95       	dec	r22
+ 606:	e2 f7       	brpl	.-8      	; 0x600 <dioWrite+0xbc>
+ 608:	80 95       	com	r24
+ 60a:	82 23       	and	r24, r18
+ 60c:	85 bb       	out	0x15, r24	; 21
+		}
+		break;
+			default:
+			return DIO_WRONG_PORT_NUMBER;
+	}
+	return DIO_OK;
+ 60e:	83 e0       	ldi	r24, 0x03	; 3
+ 610:	08 95       	ret
+		else if(value ==LOW){
+			clrBit(PORTC,pinNum);
 		}
 		break;
 		case PORT_D :
 		if(value==HIGH){
- 6a2:	41 30       	cpi	r20, 0x01	; 1
- 6a4:	59 f4       	brne	.+22     	; 0x6bc <dioWrite+0xd4>
+ 612:	41 30       	cpi	r20, 0x01	; 1
+ 614:	61 f4       	brne	.+24     	; 0x62e <dioWrite+0xea>
 			setBit(PORTD,pinNum);
- 6a6:	22 b3       	in	r18, 0x12	; 18
- 6a8:	81 e0       	ldi	r24, 0x01	; 1
- 6aa:	90 e0       	ldi	r25, 0x00	; 0
- 6ac:	02 c0       	rjmp	.+4      	; 0x6b2 <dioWrite+0xca>
- 6ae:	88 0f       	add	r24, r24
- 6b0:	99 1f       	adc	r25, r25
- 6b2:	6a 95       	dec	r22
- 6b4:	e2 f7       	brpl	.-8      	; 0x6ae <dioWrite+0xc6>
- 6b6:	82 2b       	or	r24, r18
- 6b8:	82 bb       	out	0x12, r24	; 18
- 6ba:	08 95       	ret
+ 616:	22 b3       	in	r18, 0x12	; 18
+ 618:	81 e0       	ldi	r24, 0x01	; 1
+ 61a:	90 e0       	ldi	r25, 0x00	; 0
+ 61c:	02 c0       	rjmp	.+4      	; 0x622 <dioWrite+0xde>
+ 61e:	88 0f       	add	r24, r24
+ 620:	99 1f       	adc	r25, r25
+ 622:	6a 95       	dec	r22
+ 624:	e2 f7       	brpl	.-8      	; 0x61e <dioWrite+0xda>
+ 626:	82 2b       	or	r24, r18
+ 628:	82 bb       	out	0x12, r24	; 18
+		}
+		break;
+			default:
+			return DIO_WRONG_PORT_NUMBER;
+	}
+	return DIO_OK;
+ 62a:	83 e0       	ldi	r24, 0x03	; 3
+ 62c:	08 95       	ret
+		break;
+		case PORT_D :
+		if(value==HIGH){
+			setBit(PORTD,pinNum);
 		}
 		else if(value ==LOW){
- 6bc:	41 11       	cpse	r20, r1
- 6be:	0b c0       	rjmp	.+22     	; 0x6d6 <dioWrite+0xee>
+ 62e:	41 11       	cpse	r20, r1
+ 630:	17 c0       	rjmp	.+46     	; 0x660 <dioWrite+0x11c>
 			clrBit(PORTD,pinNum);
- 6c0:	22 b3       	in	r18, 0x12	; 18
- 6c2:	81 e0       	ldi	r24, 0x01	; 1
- 6c4:	90 e0       	ldi	r25, 0x00	; 0
- 6c6:	02 c0       	rjmp	.+4      	; 0x6cc <dioWrite+0xe4>
- 6c8:	88 0f       	add	r24, r24
- 6ca:	99 1f       	adc	r25, r25
- 6cc:	6a 95       	dec	r22
- 6ce:	e2 f7       	brpl	.-8      	; 0x6c8 <dioWrite+0xe0>
- 6d0:	80 95       	com	r24
- 6d2:	82 23       	and	r24, r18
- 6d4:	82 bb       	out	0x12, r24	; 18
- 6d6:	08 95       	ret
-
-000006d8 <dioToggle>:
-	
+ 632:	22 b3       	in	r18, 0x12	; 18
+ 634:	81 e0       	ldi	r24, 0x01	; 1
+ 636:	90 e0       	ldi	r25, 0x00	; 0
+ 638:	02 c0       	rjmp	.+4      	; 0x63e <dioWrite+0xfa>
+ 63a:	88 0f       	add	r24, r24
+ 63c:	99 1f       	adc	r25, r25
+ 63e:	6a 95       	dec	r22
+ 640:	e2 f7       	brpl	.-8      	; 0x63a <dioWrite+0xf6>
+ 642:	80 95       	com	r24
+ 644:	82 23       	and	r24, r18
+ 646:	82 bb       	out	0x12, r24	; 18
+		}
+		break;
+			default:
+			return DIO_WRONG_PORT_NUMBER;
+	}
+	return DIO_OK;
+ 648:	83 e0       	ldi	r24, 0x03	; 3
+ 64a:	08 95       	ret
 }
 
-void dioToggle( unsigned char portNum ,unsigned char pinNum)
+EN_DIO_error_t  dioWrite( unsigned char portNum ,unsigned char pinNum, unsigned char value){
+	
+	if (pinNum>7){
+		return DIO_WRONG_PIN_NUMBER;
+ 64c:	80 e0       	ldi	r24, 0x00	; 0
+ 64e:	08 95       	ret
+		else if(value ==LOW){
+			clrBit(PORTD,pinNum);
+		}
+		break;
+			default:
+			return DIO_WRONG_PORT_NUMBER;
+ 650:	81 e0       	ldi	r24, 0x01	; 1
+ 652:	08 95       	ret
+	}
+	return DIO_OK;
+ 654:	83 e0       	ldi	r24, 0x03	; 3
+ 656:	08 95       	ret
+ 658:	83 e0       	ldi	r24, 0x03	; 3
+ 65a:	08 95       	ret
+ 65c:	83 e0       	ldi	r24, 0x03	; 3
+ 65e:	08 95       	ret
+ 660:	83 e0       	ldi	r24, 0x03	; 3
+}
+ 662:	08 95       	ret
+
+00000664 <dioToggle>:
+
+EN_DIO_error_t  dioToggle( unsigned char portNum ,unsigned char pinNum)
 {
+	if (pinNum>7){
+ 664:	68 30       	cpi	r22, 0x08	; 8
+ 666:	d8 f5       	brcc	.+118    	; 0x6de <dioToggle+0x7a>
+		return DIO_WRONG_PIN_NUMBER;
+	}
 	switch(portNum){
- 6d8:	82 34       	cpi	r24, 0x42	; 66
- 6da:	a1 f0       	breq	.+40     	; 0x704 <dioToggle+0x2c>
- 6dc:	18 f4       	brcc	.+6      	; 0x6e4 <dioToggle+0xc>
- 6de:	81 34       	cpi	r24, 0x41	; 65
- 6e0:	31 f0       	breq	.+12     	; 0x6ee <dioToggle+0x16>
- 6e2:	08 95       	ret
- 6e4:	83 34       	cpi	r24, 0x43	; 67
- 6e6:	c9 f0       	breq	.+50     	; 0x71a <dioToggle+0x42>
- 6e8:	84 34       	cpi	r24, 0x44	; 68
- 6ea:	11 f1       	breq	.+68     	; 0x730 <dioToggle+0x58>
- 6ec:	08 95       	ret
+ 668:	82 34       	cpi	r24, 0x42	; 66
+ 66a:	a9 f0       	breq	.+42     	; 0x696 <dioToggle+0x32>
+ 66c:	18 f4       	brcc	.+6      	; 0x674 <dioToggle+0x10>
+ 66e:	81 34       	cpi	r24, 0x41	; 65
+ 670:	31 f0       	breq	.+12     	; 0x67e <dioToggle+0x1a>
+ 672:	37 c0       	rjmp	.+110    	; 0x6e2 <dioToggle+0x7e>
+ 674:	83 34       	cpi	r24, 0x43	; 67
+ 676:	d9 f0       	breq	.+54     	; 0x6ae <dioToggle+0x4a>
+ 678:	84 34       	cpi	r24, 0x44	; 68
+ 67a:	29 f1       	breq	.+74     	; 0x6c6 <dioToggle+0x62>
+ 67c:	32 c0       	rjmp	.+100    	; 0x6e2 <dioToggle+0x7e>
 		case PORT_A :
 		toggleBit(PORTA,pinNum);
- 6ee:	2b b3       	in	r18, 0x1b	; 27
- 6f0:	81 e0       	ldi	r24, 0x01	; 1
- 6f2:	90 e0       	ldi	r25, 0x00	; 0
- 6f4:	02 c0       	rjmp	.+4      	; 0x6fa <dioToggle+0x22>
- 6f6:	88 0f       	add	r24, r24
- 6f8:	99 1f       	adc	r25, r25
- 6fa:	6a 95       	dec	r22
- 6fc:	e2 f7       	brpl	.-8      	; 0x6f6 <dioToggle+0x1e>
- 6fe:	82 27       	eor	r24, r18
- 700:	8b bb       	out	0x1b, r24	; 27
+ 67e:	2b b3       	in	r18, 0x1b	; 27
+ 680:	81 e0       	ldi	r24, 0x01	; 1
+ 682:	90 e0       	ldi	r25, 0x00	; 0
+ 684:	02 c0       	rjmp	.+4      	; 0x68a <dioToggle+0x26>
+ 686:	88 0f       	add	r24, r24
+ 688:	99 1f       	adc	r25, r25
+ 68a:	6a 95       	dec	r22
+ 68c:	e2 f7       	brpl	.-8      	; 0x686 <dioToggle+0x22>
+ 68e:	82 27       	eor	r24, r18
+ 690:	8b bb       	out	0x1b, r24	; 27
+		toggleBit(PORTD,pinNum);
+		
 		break;
- 702:	08 95       	ret
+		default: return DIO_WRONG_PORT_NUMBER;
+	}
+	return DIO_OK;
+ 692:	83 e0       	ldi	r24, 0x03	; 3
+	}
+	switch(portNum){
+		case PORT_A :
+		toggleBit(PORTA,pinNum);
+		
+		break;
+ 694:	08 95       	ret
 		case PORT_B :
 		toggleBit(PORTB,pinNum);
- 704:	28 b3       	in	r18, 0x18	; 24
- 706:	81 e0       	ldi	r24, 0x01	; 1
- 708:	90 e0       	ldi	r25, 0x00	; 0
- 70a:	02 c0       	rjmp	.+4      	; 0x710 <dioToggle+0x38>
- 70c:	88 0f       	add	r24, r24
- 70e:	99 1f       	adc	r25, r25
- 710:	6a 95       	dec	r22
- 712:	e2 f7       	brpl	.-8      	; 0x70c <dioToggle+0x34>
- 714:	82 27       	eor	r24, r18
- 716:	88 bb       	out	0x18, r24	; 24
+ 696:	28 b3       	in	r18, 0x18	; 24
+ 698:	81 e0       	ldi	r24, 0x01	; 1
+ 69a:	90 e0       	ldi	r25, 0x00	; 0
+ 69c:	02 c0       	rjmp	.+4      	; 0x6a2 <dioToggle+0x3e>
+ 69e:	88 0f       	add	r24, r24
+ 6a0:	99 1f       	adc	r25, r25
+ 6a2:	6a 95       	dec	r22
+ 6a4:	e2 f7       	brpl	.-8      	; 0x69e <dioToggle+0x3a>
+ 6a6:	82 27       	eor	r24, r18
+ 6a8:	88 bb       	out	0x18, r24	; 24
+		toggleBit(PORTD,pinNum);
+		
 		break;
- 718:	08 95       	ret
+		default: return DIO_WRONG_PORT_NUMBER;
+	}
+	return DIO_OK;
+ 6aa:	83 e0       	ldi	r24, 0x03	; 3
+		
+		break;
+		case PORT_B :
+		toggleBit(PORTB,pinNum);
+		
+		break;
+ 6ac:	08 95       	ret
 		case PORT_C :
 		toggleBit(PORTC,pinNum);
- 71a:	25 b3       	in	r18, 0x15	; 21
- 71c:	81 e0       	ldi	r24, 0x01	; 1
- 71e:	90 e0       	ldi	r25, 0x00	; 0
- 720:	02 c0       	rjmp	.+4      	; 0x726 <dioToggle+0x4e>
- 722:	88 0f       	add	r24, r24
- 724:	99 1f       	adc	r25, r25
- 726:	6a 95       	dec	r22
- 728:	e2 f7       	brpl	.-8      	; 0x722 <dioToggle+0x4a>
- 72a:	82 27       	eor	r24, r18
- 72c:	85 bb       	out	0x15, r24	; 21
+ 6ae:	25 b3       	in	r18, 0x15	; 21
+ 6b0:	81 e0       	ldi	r24, 0x01	; 1
+ 6b2:	90 e0       	ldi	r25, 0x00	; 0
+ 6b4:	02 c0       	rjmp	.+4      	; 0x6ba <dioToggle+0x56>
+ 6b6:	88 0f       	add	r24, r24
+ 6b8:	99 1f       	adc	r25, r25
+ 6ba:	6a 95       	dec	r22
+ 6bc:	e2 f7       	brpl	.-8      	; 0x6b6 <dioToggle+0x52>
+ 6be:	82 27       	eor	r24, r18
+ 6c0:	85 bb       	out	0x15, r24	; 21
+		toggleBit(PORTD,pinNum);
+		
 		break;
- 72e:	08 95       	ret
+		default: return DIO_WRONG_PORT_NUMBER;
+	}
+	return DIO_OK;
+ 6c2:	83 e0       	ldi	r24, 0x03	; 3
+		
+		break;
+		case PORT_C :
+		toggleBit(PORTC,pinNum);
+		
+		break;
+ 6c4:	08 95       	ret
 		case PORT_D :
 		toggleBit(PORTD,pinNum);
- 730:	22 b3       	in	r18, 0x12	; 18
- 732:	81 e0       	ldi	r24, 0x01	; 1
- 734:	90 e0       	ldi	r25, 0x00	; 0
- 736:	02 c0       	rjmp	.+4      	; 0x73c <dioToggle+0x64>
- 738:	88 0f       	add	r24, r24
- 73a:	99 1f       	adc	r25, r25
- 73c:	6a 95       	dec	r22
- 73e:	e2 f7       	brpl	.-8      	; 0x738 <dioToggle+0x60>
- 740:	82 27       	eor	r24, r18
- 742:	82 bb       	out	0x12, r24	; 18
- 744:	08 95       	ret
-
-00000746 <dioRead>:
+ 6c6:	22 b3       	in	r18, 0x12	; 18
+ 6c8:	81 e0       	ldi	r24, 0x01	; 1
+ 6ca:	90 e0       	ldi	r25, 0x00	; 0
+ 6cc:	02 c0       	rjmp	.+4      	; 0x6d2 <dioToggle+0x6e>
+ 6ce:	88 0f       	add	r24, r24
+ 6d0:	99 1f       	adc	r25, r25
+ 6d2:	6a 95       	dec	r22
+ 6d4:	e2 f7       	brpl	.-8      	; 0x6ce <dioToggle+0x6a>
+ 6d6:	82 27       	eor	r24, r18
+ 6d8:	82 bb       	out	0x12, r24	; 18
+		
+		break;
+		default: return DIO_WRONG_PORT_NUMBER;
 	}
+	return DIO_OK;
+ 6da:	83 e0       	ldi	r24, 0x03	; 3
+		
+		break;
+		case PORT_D :
+		toggleBit(PORTD,pinNum);
+		
+		break;
+ 6dc:	08 95       	ret
 }
 
-void dioRead( unsigned char portNum ,unsigned char pinNum, unsigned char *value){
+EN_DIO_error_t  dioToggle( unsigned char portNum ,unsigned char pinNum)
+{
+	if (pinNum>7){
+		return DIO_WRONG_PIN_NUMBER;
+ 6de:	80 e0       	ldi	r24, 0x00	; 0
+ 6e0:	08 95       	ret
+		break;
+		case PORT_D :
+		toggleBit(PORTD,pinNum);
+		
+		break;
+		default: return DIO_WRONG_PORT_NUMBER;
+ 6e2:	81 e0       	ldi	r24, 0x01	; 1
+	}
+	return DIO_OK;
+}
+ 6e4:	08 95       	ret
+
+000006e6 <dioRead>:
+
+EN_DIO_error_t dioRead( unsigned char portNum ,unsigned char pinNum, unsigned char *value){
+	
+	if (pinNum>7){
+ 6e6:	68 30       	cpi	r22, 0x08	; 8
+ 6e8:	08 f0       	brcs	.+2      	; 0x6ec <dioRead+0x6>
+ 6ea:	68 c0       	rjmp	.+208    	; 0x7bc <dioRead+0xd6>
+		return DIO_WRONG_PIN_NUMBER;
+	}
 	
 	switch (portNum){
- 746:	82 34       	cpi	r24, 0x42	; 66
- 748:	01 f1       	breq	.+64     	; 0x78a <dioRead+0x44>
- 74a:	18 f4       	brcc	.+6      	; 0x752 <dioRead+0xc>
- 74c:	81 34       	cpi	r24, 0x41	; 65
- 74e:	39 f0       	breq	.+14     	; 0x75e <dioRead+0x18>
- 750:	08 95       	ret
- 752:	83 34       	cpi	r24, 0x43	; 67
- 754:	81 f1       	breq	.+96     	; 0x7b6 <dioRead+0x70>
- 756:	84 34       	cpi	r24, 0x44	; 68
- 758:	09 f4       	brne	.+2      	; 0x75c <dioRead+0x16>
- 75a:	43 c0       	rjmp	.+134    	; 0x7e2 <dioRead+0x9c>
- 75c:	08 95       	ret
+ 6ec:	82 34       	cpi	r24, 0x42	; 66
+ 6ee:	09 f1       	breq	.+66     	; 0x732 <dioRead+0x4c>
+ 6f0:	18 f4       	brcc	.+6      	; 0x6f8 <dioRead+0x12>
+ 6f2:	81 34       	cpi	r24, 0x41	; 65
+ 6f4:	39 f0       	breq	.+14     	; 0x704 <dioRead+0x1e>
+ 6f6:	64 c0       	rjmp	.+200    	; 0x7c0 <dioRead+0xda>
+ 6f8:	83 34       	cpi	r24, 0x43	; 67
+ 6fa:	91 f1       	breq	.+100    	; 0x760 <dioRead+0x7a>
+ 6fc:	84 34       	cpi	r24, 0x44	; 68
+ 6fe:	09 f4       	brne	.+2      	; 0x702 <dioRead+0x1c>
+ 700:	46 c0       	rjmp	.+140    	; 0x78e <dioRead+0xa8>
+ 702:	5e c0       	rjmp	.+188    	; 0x7c0 <dioRead+0xda>
 		case PORT_A:
 		*value = readBit(PINA,pinNum);
- 75e:	79 b3       	in	r23, 0x19	; 25
- 760:	81 e0       	ldi	r24, 0x01	; 1
- 762:	90 e0       	ldi	r25, 0x00	; 0
- 764:	9c 01       	movw	r18, r24
- 766:	06 2e       	mov	r0, r22
- 768:	02 c0       	rjmp	.+4      	; 0x76e <dioRead+0x28>
- 76a:	22 0f       	add	r18, r18
- 76c:	33 1f       	adc	r19, r19
- 76e:	0a 94       	dec	r0
- 770:	e2 f7       	brpl	.-8      	; 0x76a <dioRead+0x24>
- 772:	87 2f       	mov	r24, r23
- 774:	90 e0       	ldi	r25, 0x00	; 0
- 776:	82 23       	and	r24, r18
- 778:	93 23       	and	r25, r19
- 77a:	02 c0       	rjmp	.+4      	; 0x780 <dioRead+0x3a>
- 77c:	95 95       	asr	r25
- 77e:	87 95       	ror	r24
- 780:	6a 95       	dec	r22
- 782:	e2 f7       	brpl	.-8      	; 0x77c <dioRead+0x36>
- 784:	fa 01       	movw	r30, r20
- 786:	80 83       	st	Z, r24
+ 704:	79 b3       	in	r23, 0x19	; 25
+ 706:	81 e0       	ldi	r24, 0x01	; 1
+ 708:	90 e0       	ldi	r25, 0x00	; 0
+ 70a:	9c 01       	movw	r18, r24
+ 70c:	06 2e       	mov	r0, r22
+ 70e:	02 c0       	rjmp	.+4      	; 0x714 <dioRead+0x2e>
+ 710:	22 0f       	add	r18, r18
+ 712:	33 1f       	adc	r19, r19
+ 714:	0a 94       	dec	r0
+ 716:	e2 f7       	brpl	.-8      	; 0x710 <dioRead+0x2a>
+ 718:	87 2f       	mov	r24, r23
+ 71a:	90 e0       	ldi	r25, 0x00	; 0
+ 71c:	82 23       	and	r24, r18
+ 71e:	93 23       	and	r25, r19
+ 720:	02 c0       	rjmp	.+4      	; 0x726 <dioRead+0x40>
+ 722:	95 95       	asr	r25
+ 724:	87 95       	ror	r24
+ 726:	6a 95       	dec	r22
+ 728:	e2 f7       	brpl	.-8      	; 0x722 <dioRead+0x3c>
+ 72a:	fa 01       	movw	r30, r20
+ 72c:	80 83       	st	Z, r24
+		
 		break;
- 788:	08 95       	ret
+		default:
+		return DIO_WRONG_PORT_NUMBER;
+	}
+	return DIO_OK;
+ 72e:	83 e0       	ldi	r24, 0x03	; 3
+	
+	switch (portNum){
+		case PORT_A:
+		*value = readBit(PINA,pinNum);
+		
+		break;
+ 730:	08 95       	ret
 		case PORT_B:
 		*value = readBit(PINB,pinNum);
- 78a:	76 b3       	in	r23, 0x16	; 22
- 78c:	81 e0       	ldi	r24, 0x01	; 1
- 78e:	90 e0       	ldi	r25, 0x00	; 0
- 790:	9c 01       	movw	r18, r24
- 792:	06 2e       	mov	r0, r22
- 794:	02 c0       	rjmp	.+4      	; 0x79a <dioRead+0x54>
- 796:	22 0f       	add	r18, r18
- 798:	33 1f       	adc	r19, r19
- 79a:	0a 94       	dec	r0
- 79c:	e2 f7       	brpl	.-8      	; 0x796 <dioRead+0x50>
- 79e:	87 2f       	mov	r24, r23
- 7a0:	90 e0       	ldi	r25, 0x00	; 0
- 7a2:	82 23       	and	r24, r18
- 7a4:	93 23       	and	r25, r19
- 7a6:	02 c0       	rjmp	.+4      	; 0x7ac <dioRead+0x66>
- 7a8:	95 95       	asr	r25
- 7aa:	87 95       	ror	r24
- 7ac:	6a 95       	dec	r22
- 7ae:	e2 f7       	brpl	.-8      	; 0x7a8 <dioRead+0x62>
- 7b0:	fa 01       	movw	r30, r20
- 7b2:	80 83       	st	Z, r24
+ 732:	76 b3       	in	r23, 0x16	; 22
+ 734:	81 e0       	ldi	r24, 0x01	; 1
+ 736:	90 e0       	ldi	r25, 0x00	; 0
+ 738:	9c 01       	movw	r18, r24
+ 73a:	06 2e       	mov	r0, r22
+ 73c:	02 c0       	rjmp	.+4      	; 0x742 <dioRead+0x5c>
+ 73e:	22 0f       	add	r18, r18
+ 740:	33 1f       	adc	r19, r19
+ 742:	0a 94       	dec	r0
+ 744:	e2 f7       	brpl	.-8      	; 0x73e <dioRead+0x58>
+ 746:	87 2f       	mov	r24, r23
+ 748:	90 e0       	ldi	r25, 0x00	; 0
+ 74a:	82 23       	and	r24, r18
+ 74c:	93 23       	and	r25, r19
+ 74e:	02 c0       	rjmp	.+4      	; 0x754 <dioRead+0x6e>
+ 750:	95 95       	asr	r25
+ 752:	87 95       	ror	r24
+ 754:	6a 95       	dec	r22
+ 756:	e2 f7       	brpl	.-8      	; 0x750 <dioRead+0x6a>
+ 758:	fa 01       	movw	r30, r20
+ 75a:	80 83       	st	Z, r24
+		
 		break;
- 7b4:	08 95       	ret
+		default:
+		return DIO_WRONG_PORT_NUMBER;
+	}
+	return DIO_OK;
+ 75c:	83 e0       	ldi	r24, 0x03	; 3
+		
+		break;
+		case PORT_B:
+		*value = readBit(PINB,pinNum);
+		
+		break;
+ 75e:	08 95       	ret
 		case PORT_C:
 		*value = readBit(PINC,pinNum);
- 7b6:	73 b3       	in	r23, 0x13	; 19
- 7b8:	81 e0       	ldi	r24, 0x01	; 1
- 7ba:	90 e0       	ldi	r25, 0x00	; 0
- 7bc:	9c 01       	movw	r18, r24
- 7be:	06 2e       	mov	r0, r22
- 7c0:	02 c0       	rjmp	.+4      	; 0x7c6 <dioRead+0x80>
- 7c2:	22 0f       	add	r18, r18
- 7c4:	33 1f       	adc	r19, r19
- 7c6:	0a 94       	dec	r0
- 7c8:	e2 f7       	brpl	.-8      	; 0x7c2 <dioRead+0x7c>
- 7ca:	87 2f       	mov	r24, r23
- 7cc:	90 e0       	ldi	r25, 0x00	; 0
- 7ce:	82 23       	and	r24, r18
- 7d0:	93 23       	and	r25, r19
- 7d2:	02 c0       	rjmp	.+4      	; 0x7d8 <dioRead+0x92>
- 7d4:	95 95       	asr	r25
- 7d6:	87 95       	ror	r24
- 7d8:	6a 95       	dec	r22
- 7da:	e2 f7       	brpl	.-8      	; 0x7d4 <dioRead+0x8e>
- 7dc:	fa 01       	movw	r30, r20
- 7de:	80 83       	st	Z, r24
+ 760:	73 b3       	in	r23, 0x13	; 19
+ 762:	81 e0       	ldi	r24, 0x01	; 1
+ 764:	90 e0       	ldi	r25, 0x00	; 0
+ 766:	9c 01       	movw	r18, r24
+ 768:	06 2e       	mov	r0, r22
+ 76a:	02 c0       	rjmp	.+4      	; 0x770 <dioRead+0x8a>
+ 76c:	22 0f       	add	r18, r18
+ 76e:	33 1f       	adc	r19, r19
+ 770:	0a 94       	dec	r0
+ 772:	e2 f7       	brpl	.-8      	; 0x76c <dioRead+0x86>
+ 774:	87 2f       	mov	r24, r23
+ 776:	90 e0       	ldi	r25, 0x00	; 0
+ 778:	82 23       	and	r24, r18
+ 77a:	93 23       	and	r25, r19
+ 77c:	02 c0       	rjmp	.+4      	; 0x782 <dioRead+0x9c>
+ 77e:	95 95       	asr	r25
+ 780:	87 95       	ror	r24
+ 782:	6a 95       	dec	r22
+ 784:	e2 f7       	brpl	.-8      	; 0x77e <dioRead+0x98>
+ 786:	fa 01       	movw	r30, r20
+ 788:	80 83       	st	Z, r24
+		
 		break;
- 7e0:	08 95       	ret
+		default:
+		return DIO_WRONG_PORT_NUMBER;
+	}
+	return DIO_OK;
+ 78a:	83 e0       	ldi	r24, 0x03	; 3
+		
+		break;
+		case PORT_C:
+		*value = readBit(PINC,pinNum);
+		
+		break;
+ 78c:	08 95       	ret
 		case PORT_D:
 		*value = readBit(PIND,pinNum);
- 7e2:	70 b3       	in	r23, 0x10	; 16
- 7e4:	81 e0       	ldi	r24, 0x01	; 1
- 7e6:	90 e0       	ldi	r25, 0x00	; 0
- 7e8:	9c 01       	movw	r18, r24
- 7ea:	06 2e       	mov	r0, r22
- 7ec:	02 c0       	rjmp	.+4      	; 0x7f2 <dioRead+0xac>
- 7ee:	22 0f       	add	r18, r18
- 7f0:	33 1f       	adc	r19, r19
- 7f2:	0a 94       	dec	r0
- 7f4:	e2 f7       	brpl	.-8      	; 0x7ee <dioRead+0xa8>
- 7f6:	87 2f       	mov	r24, r23
- 7f8:	90 e0       	ldi	r25, 0x00	; 0
- 7fa:	82 23       	and	r24, r18
- 7fc:	93 23       	and	r25, r19
- 7fe:	02 c0       	rjmp	.+4      	; 0x804 <__DATA_REGION_LENGTH__+0x4>
- 800:	95 95       	asr	r25
- 802:	87 95       	ror	r24
- 804:	6a 95       	dec	r22
- 806:	e2 f7       	brpl	.-8      	; 0x800 <__DATA_REGION_LENGTH__>
- 808:	fa 01       	movw	r30, r20
- 80a:	80 83       	st	Z, r24
- 80c:	08 95       	ret
+ 78e:	70 b3       	in	r23, 0x10	; 16
+ 790:	81 e0       	ldi	r24, 0x01	; 1
+ 792:	90 e0       	ldi	r25, 0x00	; 0
+ 794:	9c 01       	movw	r18, r24
+ 796:	06 2e       	mov	r0, r22
+ 798:	02 c0       	rjmp	.+4      	; 0x79e <dioRead+0xb8>
+ 79a:	22 0f       	add	r18, r18
+ 79c:	33 1f       	adc	r19, r19
+ 79e:	0a 94       	dec	r0
+ 7a0:	e2 f7       	brpl	.-8      	; 0x79a <dioRead+0xb4>
+ 7a2:	87 2f       	mov	r24, r23
+ 7a4:	90 e0       	ldi	r25, 0x00	; 0
+ 7a6:	82 23       	and	r24, r18
+ 7a8:	93 23       	and	r25, r19
+ 7aa:	02 c0       	rjmp	.+4      	; 0x7b0 <dioRead+0xca>
+ 7ac:	95 95       	asr	r25
+ 7ae:	87 95       	ror	r24
+ 7b0:	6a 95       	dec	r22
+ 7b2:	e2 f7       	brpl	.-8      	; 0x7ac <dioRead+0xc6>
+ 7b4:	fa 01       	movw	r30, r20
+ 7b6:	80 83       	st	Z, r24
+		
+		break;
+		default:
+		return DIO_WRONG_PORT_NUMBER;
+	}
+	return DIO_OK;
+ 7b8:	83 e0       	ldi	r24, 0x03	; 3
+		
+		break;
+		case PORT_D:
+		*value = readBit(PIND,pinNum);
+		
+		break;
+ 7ba:	08 95       	ret
+}
 
-0000080e <interruptInit>:
+EN_DIO_error_t dioRead( unsigned char portNum ,unsigned char pinNum, unsigned char *value){
+	
+	if (pinNum>7){
+		return DIO_WRONG_PIN_NUMBER;
+ 7bc:	80 e0       	ldi	r24, 0x00	; 0
+ 7be:	08 95       	ret
+		case PORT_D:
+		*value = readBit(PIND,pinNum);
+		
+		break;
+		default:
+		return DIO_WRONG_PORT_NUMBER;
+ 7c0:	81 e0       	ldi	r24, 0x01	; 1
+	}
+	return DIO_OK;
+ 7c2:	08 95       	ret
+
+000007c4 <interruptInit>:
 #include "../../HAL/Button Driver/button.h"
 #include "../../HAL/LED driver/led.h"
 #include "interrupt.h"
 
 void interruptInit(void){
 	sei();
- 80e:	78 94       	sei
+ 7c4:	78 94       	sei
 	setBit(MCUCR,0);
- 810:	85 b7       	in	r24, 0x35	; 53
- 812:	81 60       	ori	r24, 0x01	; 1
- 814:	85 bf       	out	0x35, r24	; 53
+ 7c6:	85 b7       	in	r24, 0x35	; 53
+ 7c8:	81 60       	ori	r24, 0x01	; 1
+ 7ca:	85 bf       	out	0x35, r24	; 53
 	setBit(MCUCR,1);
- 816:	85 b7       	in	r24, 0x35	; 53
- 818:	82 60       	ori	r24, 0x02	; 2
- 81a:	85 bf       	out	0x35, r24	; 53
+ 7cc:	85 b7       	in	r24, 0x35	; 53
+ 7ce:	82 60       	ori	r24, 0x02	; 2
+ 7d0:	85 bf       	out	0x35, r24	; 53
 	setBit(GICR,6);
- 81c:	8b b7       	in	r24, 0x3b	; 59
- 81e:	80 64       	ori	r24, 0x40	; 64
- 820:	8b bf       	out	0x3b, r24	; 59
+ 7d2:	8b b7       	in	r24, 0x3b	; 59
+ 7d4:	80 64       	ori	r24, 0x40	; 64
+ 7d6:	8b bf       	out	0x3b, r24	; 59
 	setBit (SREG ,7);
- 822:	8f b7       	in	r24, 0x3f	; 63
- 824:	80 68       	ori	r24, 0x80	; 128
- 826:	8f bf       	out	0x3f, r24	; 63
- 828:	08 95       	ret
+ 7d8:	8f b7       	in	r24, 0x3f	; 63
+ 7da:	80 68       	ori	r24, 0x80	; 128
+ 7dc:	8f bf       	out	0x3f, r24	; 63
+ 7de:	08 95       	ret
 
-0000082a <timerInit>:
-#include "timers.h"
-
-void timerInit()
-{
-	// 1. set timer mode to normal mode
-	TCCR0 = 0X00; // Normal mode
- 82a:	13 be       	out	0x33, r1	; 51
-	// 2. Set timer initial value to 0
-	TCNT0 = 0x00;
- 82c:	12 be       	out	0x32, r1	; 50
-	TCCR1B=1;
- 82e:	81 e0       	ldi	r24, 0x01	; 1
- 830:	8e bd       	out	0x2e, r24	; 46
- 832:	08 95       	ret
-
-00000834 <timerStart0>:
-
-// Here i implement this function
-void timerStart0(unsigned int preScalar, unsigned int number_of_overflow)
-{
-	unsigned int counter = 0;
-	switch (preScalar)
- 834:	80 34       	cpi	r24, 0x40	; 64
- 836:	91 05       	cpc	r25, r1
- 838:	b9 f0       	breq	.+46     	; 0x868 <__stack+0x9>
- 83a:	30 f4       	brcc	.+12     	; 0x848 <timerStart0+0x14>
- 83c:	81 30       	cpi	r24, 0x01	; 1
- 83e:	91 05       	cpc	r25, r1
- 840:	59 f0       	breq	.+22     	; 0x858 <timerStart0+0x24>
- 842:	08 97       	sbiw	r24, 0x08	; 8
- 844:	69 f0       	breq	.+26     	; 0x860 <__stack+0x1>
- 846:	16 c0       	rjmp	.+44     	; 0x874 <__stack+0x15>
- 848:	81 15       	cp	r24, r1
- 84a:	21 e0       	ldi	r18, 0x01	; 1
- 84c:	92 07       	cpc	r25, r18
- 84e:	a9 f0       	breq	.+42     	; 0x87a <__stack+0x1b>
- 850:	81 15       	cp	r24, r1
- 852:	94 40       	sbci	r25, 0x04	; 4
- 854:	b1 f0       	breq	.+44     	; 0x882 <__stack+0x23>
- 856:	0e c0       	rjmp	.+28     	; 0x874 <__stack+0x15>
-	{
-		case 1:
-		setBit(TCCR0,0);
- 858:	83 b7       	in	r24, 0x33	; 51
- 85a:	81 60       	ori	r24, 0x01	; 1
- 85c:	83 bf       	out	0x33, r24	; 51
-		break;
- 85e:	0a c0       	rjmp	.+20     	; 0x874 <__stack+0x15>
-		case 8:
-		setBit(TCCR0,1);
- 860:	83 b7       	in	r24, 0x33	; 51
- 862:	82 60       	ori	r24, 0x02	; 2
- 864:	83 bf       	out	0x33, r24	; 51
-		break;
- 866:	06 c0       	rjmp	.+12     	; 0x874 <__stack+0x15>
-		case 64:
-		setBit(TCCR0,0);
- 868:	83 b7       	in	r24, 0x33	; 51
- 86a:	81 60       	ori	r24, 0x01	; 1
- 86c:	83 bf       	out	0x33, r24	; 51
-		setBit(TCCR0,1);
- 86e:	83 b7       	in	r24, 0x33	; 51
- 870:	82 60       	ori	r24, 0x02	; 2
- 872:	83 bf       	out	0x33, r24	; 51
-	TCCR1B=1;
-}
-
-// Here i implement this function
-void timerStart0(unsigned int preScalar, unsigned int number_of_overflow)
-{
- 874:	20 e0       	ldi	r18, 0x00	; 0
- 876:	30 e0       	ldi	r19, 0x00	; 0
- 878:	13 c0       	rjmp	.+38     	; 0x8a0 <__stack+0x41>
-		case 64:
-		setBit(TCCR0,0);
-		setBit(TCCR0,1);
-		break;
-		case 256:
-		setBit(TCCR0,2);
- 87a:	83 b7       	in	r24, 0x33	; 51
- 87c:	84 60       	ori	r24, 0x04	; 4
- 87e:	83 bf       	out	0x33, r24	; 51
-		break;
- 880:	f9 cf       	rjmp	.-14     	; 0x874 <__stack+0x15>
-		case 1024:
-		setBit(TCCR0,0);
- 882:	83 b7       	in	r24, 0x33	; 51
- 884:	81 60       	ori	r24, 0x01	; 1
- 886:	83 bf       	out	0x33, r24	; 51
-		setBit(TCCR0,2);
- 888:	83 b7       	in	r24, 0x33	; 51
- 88a:	84 60       	ori	r24, 0x04	; 4
- 88c:	83 bf       	out	0x33, r24	; 51
-		break;
- 88e:	f2 cf       	rjmp	.-28     	; 0x874 <__stack+0x15>
-	}
-	// overflow times
-	while (counter < number_of_overflow)
-	{
-		//  overflow set
-		while (readBit(TIFR,0) == 0);
- 890:	08 b6       	in	r0, 0x38	; 56
- 892:	00 fe       	sbrs	r0, 0
- 894:	fd cf       	rjmp	.-6      	; 0x890 <__stack+0x31>
-		// Clear the overflow
-		setBit(TIFR,0);
- 896:	88 b7       	in	r24, 0x38	; 56
- 898:	81 60       	ori	r24, 0x01	; 1
- 89a:	88 bf       	out	0x38, r24	; 56
-		counter++;
- 89c:	2f 5f       	subi	r18, 0xFF	; 255
- 89e:	3f 4f       	sbci	r19, 0xFF	; 255
-		break;
-		default:
-		break;
-	}
-	// overflow times
-	while (counter < number_of_overflow)
- 8a0:	26 17       	cp	r18, r22
- 8a2:	37 07       	cpc	r19, r23
- 8a4:	a8 f3       	brcs	.-22     	; 0x890 <__stack+0x31>
-		while (readBit(TIFR,0) == 0);
-		// Clear the overflow
-		setBit(TIFR,0);
-		counter++;
+000007e0 <timerInit>:
 	}
 }
- 8a6:	08 95       	ret
 
-000008a8 <timerStop0>:
-
-void timerStop0(void)
+void timerStop0()
 {
 	TCCR0 = 0x00;
- 8a8:	13 be       	out	0x33, r1	; 51
- 8aa:	08 95       	ret
+ 7e0:	13 be       	out	0x33, r1	; 51
+ 7e2:	12 be       	out	0x32, r1	; 50
+ 7e4:	81 e0       	ldi	r24, 0x01	; 1
+ 7e6:	8e bd       	out	0x2e, r24	; 46
+ 7e8:	08 95       	ret
 
-000008ac <timer0Set>:
+000007ea <timerStart0>:
+ 7ea:	80 34       	cpi	r24, 0x40	; 64
+ 7ec:	91 05       	cpc	r25, r1
+ 7ee:	b9 f0       	breq	.+46     	; 0x81e <__DATA_REGION_LENGTH__+0x1e>
+ 7f0:	30 f4       	brcc	.+12     	; 0x7fe <timerStart0+0x14>
+ 7f2:	81 30       	cpi	r24, 0x01	; 1
+ 7f4:	91 05       	cpc	r25, r1
+ 7f6:	59 f0       	breq	.+22     	; 0x80e <__DATA_REGION_LENGTH__+0xe>
+ 7f8:	08 97       	sbiw	r24, 0x08	; 8
+ 7fa:	69 f0       	breq	.+26     	; 0x816 <__DATA_REGION_LENGTH__+0x16>
+ 7fc:	16 c0       	rjmp	.+44     	; 0x82a <__DATA_REGION_LENGTH__+0x2a>
+ 7fe:	81 15       	cp	r24, r1
+ 800:	21 e0       	ldi	r18, 0x01	; 1
+ 802:	92 07       	cpc	r25, r18
+ 804:	a9 f0       	breq	.+42     	; 0x830 <__DATA_REGION_LENGTH__+0x30>
+ 806:	81 15       	cp	r24, r1
+ 808:	94 40       	sbci	r25, 0x04	; 4
+ 80a:	b1 f0       	breq	.+44     	; 0x838 <__DATA_REGION_LENGTH__+0x38>
+ 80c:	0e c0       	rjmp	.+28     	; 0x82a <__DATA_REGION_LENGTH__+0x2a>
+ 80e:	83 b7       	in	r24, 0x33	; 51
+ 810:	81 60       	ori	r24, 0x01	; 1
+ 812:	83 bf       	out	0x33, r24	; 51
+ 814:	0a c0       	rjmp	.+20     	; 0x82a <__DATA_REGION_LENGTH__+0x2a>
+ 816:	83 b7       	in	r24, 0x33	; 51
+ 818:	82 60       	ori	r24, 0x02	; 2
+ 81a:	83 bf       	out	0x33, r24	; 51
+ 81c:	06 c0       	rjmp	.+12     	; 0x82a <__DATA_REGION_LENGTH__+0x2a>
+ 81e:	83 b7       	in	r24, 0x33	; 51
+ 820:	81 60       	ori	r24, 0x01	; 1
+ 822:	83 bf       	out	0x33, r24	; 51
+ 824:	83 b7       	in	r24, 0x33	; 51
+ 826:	82 60       	ori	r24, 0x02	; 2
+ 828:	83 bf       	out	0x33, r24	; 51
+ 82a:	20 e0       	ldi	r18, 0x00	; 0
+ 82c:	30 e0       	ldi	r19, 0x00	; 0
+ 82e:	13 c0       	rjmp	.+38     	; 0x856 <__DATA_REGION_LENGTH__+0x56>
+ 830:	83 b7       	in	r24, 0x33	; 51
+ 832:	84 60       	ori	r24, 0x04	; 4
+ 834:	83 bf       	out	0x33, r24	; 51
+ 836:	f9 cf       	rjmp	.-14     	; 0x82a <__DATA_REGION_LENGTH__+0x2a>
+ 838:	83 b7       	in	r24, 0x33	; 51
+ 83a:	81 60       	ori	r24, 0x01	; 1
+ 83c:	83 bf       	out	0x33, r24	; 51
+ 83e:	83 b7       	in	r24, 0x33	; 51
+ 840:	84 60       	ori	r24, 0x04	; 4
+ 842:	83 bf       	out	0x33, r24	; 51
+ 844:	f2 cf       	rjmp	.-28     	; 0x82a <__DATA_REGION_LENGTH__+0x2a>
+ 846:	08 b6       	in	r0, 0x38	; 56
+ 848:	00 fe       	sbrs	r0, 0
+ 84a:	fd cf       	rjmp	.-6      	; 0x846 <__DATA_REGION_LENGTH__+0x46>
+ 84c:	88 b7       	in	r24, 0x38	; 56
+ 84e:	81 60       	ori	r24, 0x01	; 1
+ 850:	88 bf       	out	0x38, r24	; 56
+ 852:	2f 5f       	subi	r18, 0xFF	; 255
+ 854:	3f 4f       	sbci	r19, 0xFF	; 255
+ 856:	26 17       	cp	r18, r22
+ 858:	37 07       	cpc	r19, r23
+ 85a:	a8 f3       	brcs	.-22     	; 0x846 <__DATA_REGION_LENGTH__+0x46>
+ 85c:	08 95       	ret
+
+0000085e <timer0Set>:
 }
-void timer0Set(int x){
+timerError timer0Set(int x){
 	if(x==2000){
- 8ac:	80 3d       	cpi	r24, 0xD0	; 208
- 8ae:	27 e0       	ldi	r18, 0x07	; 7
- 8b0:	92 07       	cpc	r25, r18
- 8b2:	39 f4       	brne	.+14     	; 0x8c2 <timer0Set+0x16>
+ 85e:	80 3d       	cpi	r24, 0xD0	; 208
+ 860:	27 e0       	ldi	r18, 0x07	; 7
+ 862:	92 07       	cpc	r25, r18
+ 864:	41 f4       	brne	.+16     	; 0x876 <__stack+0x17>
 		timerStart0(256,77);
- 8b4:	6d e4       	ldi	r22, 0x4D	; 77
- 8b6:	70 e0       	ldi	r23, 0x00	; 0
- 8b8:	80 e0       	ldi	r24, 0x00	; 0
- 8ba:	91 e0       	ldi	r25, 0x01	; 1
- 8bc:	0e 94 1a 04 	call	0x834	; 0x834 <timerStart0>
- 8c0:	08 c0       	rjmp	.+16     	; 0x8d2 <timer0Set+0x26>
+ 866:	6d e4       	ldi	r22, 0x4D	; 77
+ 868:	70 e0       	ldi	r23, 0x00	; 0
+ 86a:	80 e0       	ldi	r24, 0x00	; 0
+ 86c:	91 e0       	ldi	r25, 0x01	; 1
+ 86e:	0e 94 f5 03 	call	0x7ea	; 0x7ea <timerStart0>
+		timerStart0(256,15);
+	}
+	else{
+		return wrongMode;
+	}
+	return timerok;
+ 872:	81 e0       	ldi	r24, 0x01	; 1
+ 874:	08 95       	ret
+}
+timerError timer0Set(int x){
+	if(x==2000){
+		timerStart0(256,77);
 	}
 	else if(x==0) {
- 8c2:	89 2b       	or	r24, r25
- 8c4:	31 f4       	brne	.+12     	; 0x8d2 <timer0Set+0x26>
+ 876:	89 2b       	or	r24, r25
+ 878:	41 f4       	brne	.+16     	; 0x88a <__stack+0x2b>
 		timerStart0(256,15);
- 8c6:	6f e0       	ldi	r22, 0x0F	; 15
- 8c8:	70 e0       	ldi	r23, 0x00	; 0
- 8ca:	80 e0       	ldi	r24, 0x00	; 0
- 8cc:	91 e0       	ldi	r25, 0x01	; 1
- 8ce:	0e 94 1a 04 	call	0x834	; 0x834 <timerStart0>
+ 87a:	6f e0       	ldi	r22, 0x0F	; 15
+ 87c:	70 e0       	ldi	r23, 0x00	; 0
+ 87e:	80 e0       	ldi	r24, 0x00	; 0
+ 880:	91 e0       	ldi	r25, 0x01	; 1
+ 882:	0e 94 f5 03 	call	0x7ea	; 0x7ea <timerStart0>
 	}
+	else{
+		return wrongMode;
+	}
+	return timerok;
+ 886:	81 e0       	ldi	r24, 0x01	; 1
+ 888:	08 95       	ret
+	}
+	else if(x==0) {
+		timerStart0(256,15);
+	}
+	else{
+		return wrongMode;
+ 88a:	80 e0       	ldi	r24, 0x00	; 0
+	}
+	return timerok;
 	timerStop0();
- 8d2:	0e 94 54 04 	call	0x8a8	; 0x8a8 <timerStop0>
- 8d6:	08 95       	ret
-
-000008d8 <timer1Set>:
 }
-void timer1Set(int yellow){
+ 88c:	08 95       	ret
+
+0000088e <timer1Set>:
+timerError timer1Set(int yellow){
 	// here i use prescalar 64 for and 256 for 5 second
 	TCCR1B = 0x00;
- 8d8:	1e bc       	out	0x2e, r1	; 46
+ 88e:	1e bc       	out	0x2e, r1	; 46
 	if(yellow==1){
- 8da:	81 30       	cpi	r24, 0x01	; 1
- 8dc:	91 05       	cpc	r25, r1
- 8de:	71 f4       	brne	.+28     	; 0x8fc <timer1Set+0x24>
-		
+ 890:	81 30       	cpi	r24, 0x01	; 1
+ 892:	91 05       	cpc	r25, r1
+ 894:	71 f4       	brne	.+28     	; 0x8b2 <timer1Set+0x24>
 		TCNT1H = 0xE1;
- 8e0:	81 ee       	ldi	r24, 0xE1	; 225
- 8e2:	8d bd       	out	0x2d, r24	; 45
+ 896:	81 ee       	ldi	r24, 0xE1	; 225
+ 898:	8d bd       	out	0x2d, r24	; 45
 		TCNT1L = 0x7C;
- 8e4:	8c e7       	ldi	r24, 0x7C	; 124
- 8e6:	8c bd       	out	0x2c, r24	; 44
+ 89a:	8c e7       	ldi	r24, 0x7C	; 124
+ 89c:	8c bd       	out	0x2c, r24	; 44
 		//make the prescalar of 64
 		setBit(TIFR,2);
- 8e8:	88 b7       	in	r24, 0x38	; 56
- 8ea:	84 60       	ori	r24, 0x04	; 4
- 8ec:	88 bf       	out	0x38, r24	; 56
+ 89e:	88 b7       	in	r24, 0x38	; 56
+ 8a0:	84 60       	ori	r24, 0x04	; 4
+ 8a2:	88 bf       	out	0x38, r24	; 56
 		setBit(TCCR1B,1);
- 8ee:	8e b5       	in	r24, 0x2e	; 46
- 8f0:	82 60       	ori	r24, 0x02	; 2
- 8f2:	8e bd       	out	0x2e, r24	; 46
+ 8a4:	8e b5       	in	r24, 0x2e	; 46
+ 8a6:	82 60       	ori	r24, 0x02	; 2
+ 8a8:	8e bd       	out	0x2e, r24	; 46
 		setBit(TCCR1B,0);
- 8f4:	8e b5       	in	r24, 0x2e	; 46
- 8f6:	81 60       	ori	r24, 0x01	; 1
- 8f8:	8e bd       	out	0x2e, r24	; 46
- 8fa:	0c c0       	rjmp	.+24     	; 0x914 <timer1Set+0x3c>
+ 8aa:	8e b5       	in	r24, 0x2e	; 46
+ 8ac:	81 60       	ori	r24, 0x01	; 1
+ 8ae:	8e bd       	out	0x2e, r24	; 46
+ 8b0:	0c c0       	rjmp	.+24     	; 0x8ca <timer1Set+0x3c>
 	}
 	else if(yellow==0) {
- 8fc:	89 2b       	or	r24, r25
- 8fe:	51 f4       	brne	.+20     	; 0x914 <timer1Set+0x3c>
+ 8b2:	89 2b       	or	r24, r25
+ 8b4:	81 f4       	brne	.+32     	; 0x8d6 <timer1Set+0x48>
 		//tick = 256/10^6
 		//max ticks = 2^16
 		// no. of ticks = 5 second / tick
 		// initial value = max ticks - no. of ticks needed = B3B5
 		TCNT1H =  0xB3;
- 900:	83 eb       	ldi	r24, 0xB3	; 179
- 902:	8d bd       	out	0x2d, r24	; 45
+ 8b6:	83 eb       	ldi	r24, 0xB3	; 179
+ 8b8:	8d bd       	out	0x2d, r24	; 45
 		TCNT1L = 0xB5;
- 904:	85 eb       	ldi	r24, 0xB5	; 181
- 906:	8c bd       	out	0x2c, r24	; 44
+ 8ba:	85 eb       	ldi	r24, 0xB5	; 181
+ 8bc:	8c bd       	out	0x2c, r24	; 44
 		//make the prescalar of 256
 		setBit(TIFR,2);
- 908:	88 b7       	in	r24, 0x38	; 56
- 90a:	84 60       	ori	r24, 0x04	; 4
- 90c:	88 bf       	out	0x38, r24	; 56
+ 8be:	88 b7       	in	r24, 0x38	; 56
+ 8c0:	84 60       	ori	r24, 0x04	; 4
+ 8c2:	88 bf       	out	0x38, r24	; 56
 		setBit(TCCR1B,2);
- 90e:	8e b5       	in	r24, 0x2e	; 46
- 910:	84 60       	ori	r24, 0x04	; 4
- 912:	8e bd       	out	0x2e, r24	; 46
+ 8c4:	8e b5       	in	r24, 0x2e	; 46
+ 8c6:	84 60       	ori	r24, 0x04	; 4
+ 8c8:	8e bd       	out	0x2e, r24	; 46
+	}
+	
+	else{
+	return wrongMode;
 	}
 	while ((readBit(TIFR,2)) == 0);
- 914:	08 b6       	in	r0, 0x38	; 56
- 916:	02 fe       	sbrs	r0, 2
- 918:	fd cf       	rjmp	.-6      	; 0x914 <timer1Set+0x3c>
+ 8ca:	08 b6       	in	r0, 0x38	; 56
+ 8cc:	02 fe       	sbrs	r0, 2
+ 8ce:	fd cf       	rjmp	.-6      	; 0x8ca <timer1Set+0x3c>
 	//setBit(TIFR,2);
 
 	// stop the timer
 	TCCR1B = 0x00;
- 91a:	1e bc       	out	0x2e, r1	; 46
- 91c:	08 95       	ret
+ 8d0:	1e bc       	out	0x2e, r1	; 46
+	return timerok;
+ 8d2:	81 e0       	ldi	r24, 0x01	; 1
+ 8d4:	08 95       	ret
+		setBit(TIFR,2);
+		setBit(TCCR1B,2);
+	}
+	
+	else{
+	return wrongMode;
+ 8d6:	80 e0       	ldi	r24, 0x00	; 0
+	//setBit(TIFR,2);
 
-0000091e <_exit>:
- 91e:	f8 94       	cli
+	// stop the timer
+	TCCR1B = 0x00;
+	return timerok;
+}
+ 8d8:	08 95       	ret
 
-00000920 <__stop_program>:
- 920:	ff cf       	rjmp	.-2      	; 0x920 <__stop_program>
+000008da <_exit>:
+ 8da:	f8 94       	cli
+
+000008dc <__stop_program>:
+ 8dc:	ff cf       	rjmp	.-2      	; 0x8dc <__stop_program>

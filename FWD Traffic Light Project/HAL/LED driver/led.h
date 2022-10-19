@@ -9,11 +9,10 @@
 #ifndef LED_H_
 #define LED_H_
 
-
-void ledInit(unsigned char ledPort ,unsigned char ledPin);
-void ledON(unsigned char ledPort ,unsigned char ledPin);
-void ledOFF(unsigned char ledPort ,unsigned char ledPin);
-void ledToggle(unsigned char ledPort ,unsigned char ledPin);
+EN_DIO_error_t ledInit(unsigned char ledPort ,unsigned char ledPin);
+EN_DIO_error_t ledON(unsigned char ledPort ,unsigned char ledPin);
+EN_DIO_error_t ledOFF(unsigned char ledPort ,unsigned char ledPin);
+EN_DIO_error_t ledToggle(unsigned char ledPort ,unsigned char ledPin);
 
 
 
